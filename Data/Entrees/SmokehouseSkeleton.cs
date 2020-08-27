@@ -1,0 +1,126 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Data.Entrees
+{
+    public class SmokehouseSkeleton
+    {
+        public bool sausageLink = true;
+        public bool egg = true;
+        public bool hashBrowns = true;
+        public bool pancake = true;
+
+        /// <summary>
+        /// The entree price.
+        /// </summary>
+        public double Price
+        {
+            get
+            {
+                return 5.62;
+            }
+        }
+
+        /// <summary>
+        /// The entree's calories.
+        /// </summary>
+        public uint Calories
+        {
+            get
+            {
+                return 602;
+            }
+        }
+
+        /// <summary>
+        /// Whether the burger is to have sausage or not.
+        /// </summary>
+        public bool SausageLink
+        {
+            get
+            {
+                return this.sausageLink;
+            }
+            set
+            {
+                this.sausageLink = value;
+            }
+        }
+
+        /// <summary>
+        /// Whether the burger is to have egg or not.
+        /// </summary>
+        public bool Egg
+        {
+            get
+            {
+                return this.egg;
+            }
+            set
+            {
+                this.egg = value;
+            }
+        }
+
+        /// <summary>
+        /// Whether the burger is to have hashbrowns or not.
+        /// </summary>
+        public bool HashBrowns
+        {
+            get
+            {
+                return this.hashBrowns;
+            }
+            set
+            {
+                this.hashBrowns = value;
+            }
+        }
+
+        /// <summary>
+        /// Whether the burger is to have pancake or not.
+        /// </summary>
+        public bool Pancake
+        {
+            get
+            {
+                return this.pancake;
+            }
+            set
+            {
+                this.pancake = value;
+            }
+        }
+
+        /// <summary>
+        /// List of special instructions.
+        /// </summary>
+        public List<string> SpecialInstructions
+        {
+            get
+            {
+                List<string> sInst = new List<string>();
+                if (!this.sausageLink)
+                    sInst.Add("Hold sausage");
+                if (!this.egg)
+                    sInst.Add("Hold eggs");
+                if (!this.hashBrowns)
+                    sInst.Add("Hold hash browns");
+                if (!this.pancake)
+                    sInst.Add("Hold pancake");
+                
+                return sInst;
+            }
+        }
+
+        /// <summary>
+        /// The name of the entree.
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return "Smokehouse Skeleton";
+        }
+    }
+}
