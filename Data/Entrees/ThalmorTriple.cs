@@ -1,9 +1,18 @@
-﻿using System;
+﻿/*
+ * Author: Jerry Rizzo 
+ * Class Name: ThalmorTriple.cs
+ * Purpose: Represents Thalmor Triple entree.
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Entrees
+namespace BleakwindBuffet.Data.Entrees
 {
+    /// <summary>
+    /// Class for Thalmor Triple entree.
+    /// </summary>
     public class ThalmorTriple
     {
         private bool bun = true;

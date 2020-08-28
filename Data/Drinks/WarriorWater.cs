@@ -1,11 +1,20 @@
-﻿using System;
+﻿/*
+ * Author: Jerry Rizzo 
+ * Class Name: WarriorWater.cs
+ * Purpose: Represents Warrior Water drink.
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 
 
-namespace Data.Drinks
+namespace BleakwindBuffet.Data.Drinks
 {
+    /// <summary>
+    /// Class for Warrior Water drink.
+    /// </summary>
     public class WarriorWater
     {
         private bool ice = true;

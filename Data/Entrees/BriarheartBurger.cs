@@ -8,10 +8,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Entrees
+namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
-    /// Briarheart Burger entree.
+    /// Class for Briarheart Burger entree.
     /// </summary>
     public class BriarheartBurger
     {

@@ -1,11 +1,20 @@
-﻿using System;
+﻿/*
+ * Author: Jerry Rizzo 
+ * Class Name: MarkarthMilk.cs
+ * Purpose: Represents Markarth Milk Juice drink.
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 
 
-namespace Data.Drinks
+namespace BleakwindBuffet.Data.Drinks
 {
+    /// <summary>
+    /// Class for Markarth Milk drink.
+    /// </summary>
     public class MarkarthMilk
     {
         private bool ice = false;

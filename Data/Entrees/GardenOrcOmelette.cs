@@ -1,9 +1,18 @@
-﻿using System;
+﻿/*
+ * Author: Jerry Rizzo 
+ * Class Name: GardenOrcOmelette.cs
+ * Purpose: Represents Garden Orc Omelette entree.
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Entrees
+namespace BleakwindBuffet.Data.Entrees
 {
+    /// <summary>
+    /// Class for Garden Orc Omelette entree.
+    /// </summary>
     public class GardenOrcOmelette
     {
         private bool broccoli = true;

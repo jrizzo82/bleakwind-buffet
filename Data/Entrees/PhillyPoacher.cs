@@ -1,9 +1,18 @@
-﻿using System;
+﻿/*
+ * Author: Jerry Rizzo 
+ * Class Name: PhillyPoacher.cs
+ * Purpose: Represents Philly Poacher entree.
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Entrees
+namespace BleakwindBuffet.Data.Entrees
 {
+    /// <summary>
+    /// Class for Philly Poacher entree.
+    /// </summary>
     public class PhillyPoacher
     {
         private bool sirloin = true;

@@ -1,9 +1,18 @@
-﻿using System;
+﻿/*
+ * Author: Jerry Rizzo 
+ * Class Name: DoubleDraugr.cs
+ * Purpose: Represents Double Draugr entree.
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Entrees
+namespace BleakwindBuffet.Data.Entrees
 {
+    /// <summary>
+    /// Class for Double Draugr entree.
+    /// </summary>
     public class DoubleDraugr
     {
         private bool bun = true;

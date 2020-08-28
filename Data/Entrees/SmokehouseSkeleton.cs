@@ -1,9 +1,18 @@
-﻿using System;
+﻿/*
+ * Author: Jerry Rizzo 
+ * Class Name: SmokehouseSkeleton.cs
+ * Purpose: Represents Smokehouse Skeleton entree.
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Entrees
+namespace BleakwindBuffet.Data.Entrees
 {
+    /// <summary>
+    /// Class for Smokehouse Skeleton entree.
+    /// </summary>
     public class SmokehouseSkeleton
     {
         public bool sausageLink = true;

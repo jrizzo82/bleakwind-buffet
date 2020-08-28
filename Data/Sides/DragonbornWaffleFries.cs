@@ -1,7 +1,7 @@
 ﻿/*
  * Author: Jerry Rizzo 
- * Class Name: AretinoAppleJuice.cs
- * Purpose: Represents Aretino Apple Juice drink.
+ * Class Name: DragonbornWaffleFries.cs
+ * Purpose: Represents Dragonborn Waffle Fries side.
  */
 
 using System;
@@ -10,18 +10,17 @@ using System.Text;
 using BleakwindBuffet.Data.Enums;
 
 
-namespace BleakwindBuffet.Data.Drinks
+namespace BleakwindBuffet.Data.Sides
 {
     /// <summary>
-    /// Class for Aretino Apple Juice drink.
+    /// Class for Dragonborn Waffle Fries side.
     /// </summary>
-    public class AretinoAppleJuice
+    public class DragonbornWaffleFries
     {
-        private bool ice = false;
         private Size size = Size.Small;
 
         /// <summary>
-        /// The drink's price.
+        /// The side's price.
         /// </summary>
         public double Price
         {
@@ -30,17 +29,17 @@ namespace BleakwindBuffet.Data.Drinks
                 switch (this.size)
                 {
                     case Size.Small:
-                        return 0.62;
+                        return 0.42;
                     case Size.Medium:
-                        return 0.87;
+                        return 0.76;
                     default:
-                        return 1.01;
+                        return 0.96;
                 }
             }
         }
 
         /// <summary>
-        /// The drink's calories.
+        /// The side's calories.
         /// </summary>
         public uint Calories
         {
@@ -49,32 +48,18 @@ namespace BleakwindBuffet.Data.Drinks
                 switch (this.size)
                 {
                     case Size.Small:
-                        return 44;
+                        return 77;
                     case Size.Medium:
-                        return 88;
+                        return 89;
                     default:
-                        return 132;
+                        return 100;
                 }
             }
         }
 
-        /// <summary>
-        /// Whether the drink has ice or not.
-        /// </summary>
-        public bool Ice
-        {
-            get
-            {
-                return this.ice;
-            }
-            set
-            {
-                this.ice = value;
-            }
-        }
 
         /// <summary>
-        /// The drink's size.
+        /// The side's size.
         /// </summary>
         public Size Size
         {
@@ -95,16 +80,12 @@ namespace BleakwindBuffet.Data.Drinks
         {
             get
             {
-                List<string> sInst = new List<string>();
-                if (this.ice)
-                    sInst.Add("Add ice");
-
-                return sInst;
+                return new List<string>();
             }
         }
 
         /// <summary>
-        /// The name of the drink.
+        /// The name of the side.
         /// </summary>
         /// <returns></returns>
         public override string ToString()
@@ -122,7 +103,7 @@ namespace BleakwindBuffet.Data.Drinks
                     sub1 = "Large";
                     break;
             }
-            return sub1 + " Aretino Apple Juice";
+            return sub1 + " Dragonborn Waffle Fries";
         }
     }
 }

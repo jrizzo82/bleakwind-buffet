@@ -1,9 +1,18 @@
-﻿using System;
+﻿/*
+ * Author: Jerry Rizzo 
+ * Class Name: ThugsTBone.cs
+ * Purpose: Represents Thugs TBone entree.
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Entrees
+namespace BleakwindBuffet.Data.Entrees
 {
+    /// <summary>
+    /// Class for Thugs TBone entree.
+    /// </summary>
     public class ThugsTBone
     {
         /// <summary>
