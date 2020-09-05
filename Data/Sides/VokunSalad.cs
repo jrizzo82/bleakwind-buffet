@@ -10,7 +10,7 @@ using System.Text;
 using BleakwindBuffet.Data.Enums;
 
 
-namespace Data.Sides
+namespace BleakwindBuffet.Data.Sides
 {
     /// <summary>
     /// Class for Vokun Salad side.

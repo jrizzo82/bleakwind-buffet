@@ -117,7 +117,7 @@ namespace BleakwindBuffet.Data.Entrees
                 if (!this.hashBrowns)
                     sInst.Add("Hold hash browns");
                 if (!this.pancake)
-                    sInst.Add("Hold pancake");
+                    sInst.Add("Hold pancakes");
                 
                 return sInst;
             }
