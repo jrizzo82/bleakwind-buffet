@@ -15,10 +15,10 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class SmokehouseSkeleton
     {
-        public bool sausageLink = true;
-        public bool egg = true;
-        public bool hashBrowns = true;
-        public bool pancake = true;
+        private bool sausageLink = true;
+        private bool egg = true;
+        private bool hashBrowns = true;
+        private bool pancake = true;
 
         /// <summary>
         /// The entree price.

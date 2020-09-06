@@ -10,6 +10,9 @@ using BleakwindBuffet.Data.Entrees;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
+    /// <summary>
+    /// Unit Tests for DoubleDraugr.cs
+    /// </summary>
     public class DoubleDraugrTests
     {   
         [Fact]

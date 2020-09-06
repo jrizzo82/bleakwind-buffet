@@ -11,6 +11,9 @@ using BleakwindBuffet.Data.Drinks;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
+    /// <summary>
+    /// Unit Tests for MarkarthMilk.cs
+    /// </summary>
     public class MarkarthMilkTests
     {
         [Fact]

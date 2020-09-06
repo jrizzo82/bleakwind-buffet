@@ -15,6 +15,9 @@ using BleakwindBuffet.Data.Drinks;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
+    /// <summary>
+    /// Unit Tests for WarriorWater.cs
+    /// </summary>
     public class WarriorWaterTests
     {
         [Fact]

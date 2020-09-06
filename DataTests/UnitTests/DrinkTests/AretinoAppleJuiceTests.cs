@@ -11,6 +11,9 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
+    /// <summary>
+    /// Unit Tests for AretinoAppleJuice.cs
+    /// </summary>
     public class AretinoAppleJuiceTests
     {
         [Fact]

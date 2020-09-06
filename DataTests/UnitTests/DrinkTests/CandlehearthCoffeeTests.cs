@@ -11,6 +11,9 @@ using BleakwindBuffet.Data.Drinks;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
+    /// <summary>
+    /// Unit Tests for CandlehearthCoffee.cs
+    /// </summary>
     public class CandlehearthCoffeeTests
     {
         [Fact]
