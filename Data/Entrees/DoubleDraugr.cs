@@ -170,7 +170,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// List of special instructions.
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {
