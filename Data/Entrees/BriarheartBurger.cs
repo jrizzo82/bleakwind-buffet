@@ -13,7 +13,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// Class for Briarheart Burger entree.
     /// </summary>
-    public class BriarheartBurger
+    public class BriarheartBurger : Entree, IOrderItem
     {
         private bool bun = true;
         private bool ketchup = true;
@@ -24,7 +24,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// The entree price.
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -35,7 +35,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// The entree's calories.
         /// </summary>
-        public uint Calories 
+        public override uint Calories 
         { 
             get
             {

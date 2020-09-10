@@ -145,5 +145,19 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             ss.Size = size;
             Assert.Equal(name, ss.ToString());
         }
+
+        [Fact]
+        public void ShouldBeAssignableToIOrderItem()
+        {
+            SailorSoda ss = new SailorSoda();
+            Assert.IsAssignableFrom<IOrderItem>(ss);
+        }
+
+        [Fact]
+        public void ShouldBeAssignableToBaseClass()
+        {
+            SailorSoda ss = new SailorSoda();
+            Assert.IsAssignableFrom<Drink>(ss);
+        }
     }
 }

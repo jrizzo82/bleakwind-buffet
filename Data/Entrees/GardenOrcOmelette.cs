@@ -13,7 +13,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// Class for Garden Orc Omelette entree.
     /// </summary>
-    public class GardenOrcOmelette
+    public class GardenOrcOmelette : Entree, IOrderItem
     {
         private bool broccoli = true;
         private bool mushrooms = true;
@@ -23,7 +23,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// The entree price.
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -34,7 +34,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// The entree's calories.
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {

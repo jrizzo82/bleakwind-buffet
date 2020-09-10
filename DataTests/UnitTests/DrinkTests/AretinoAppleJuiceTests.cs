@@ -8,6 +8,7 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
+using NuGet.Frameworks;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
@@ -81,9 +82,9 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         {
             AretinoAppleJuice aj = new AretinoAppleJuice();
             aj.Ice = includeIce;
-            if (includeIce) 
+            if (includeIce)
                 Assert.Contains("Add ice", aj.SpecialInstructions);
-            else 
+            else
                 Assert.Empty(aj.SpecialInstructions);
         }
 
@@ -96,6 +97,20 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             AretinoAppleJuice aj = new AretinoAppleJuice();
             aj.Size = size;
             Assert.Equal(name, aj.ToString());
+        }
+
+        [Fact]
+        public void ShouldBeAssignableToIOrderItem()
+        {
+            AretinoAppleJuice aj = new AretinoAppleJuice();
+            Assert.IsAssignableFrom<IOrderItem>(aj);
+        }
+
+        [Fact]
+        public void ShouldBeAssignableToBaseClass()
+        {
+            AretinoAppleJuice aj = new AretinoAppleJuice();
+            Assert.IsAssignableFrom<Drink>(aj);
         }
     }
 }
