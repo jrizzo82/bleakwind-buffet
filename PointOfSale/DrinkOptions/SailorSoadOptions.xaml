@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="PointOfSale.DrinkOptions.SailorSoadOptions"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale.DrinkOptions"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.ColumnSpan="2" DockPanel.Dock="Top" FontSize="30" TextAlignment="Center">Sailor Soda Options</TextBlock>
+        <CheckBox Grid.Row="1" FontSize="25" Content="Ice"/>
+        <RadioButton Grid.Row="2" FontSize="25" Margin="0,15" GroupName="Size" Content="Small"/>
+        <RadioButton Grid.Row="3" DockPanel.Dock="Top" FontSize="25" Margin="0,15" GroupName="Size" Content="Medium"/>
+        <RadioButton Grid.Row="4" DockPanel.Dock="Top" FontSize="25" Margin="0,15" GroupName="Size" Content="Large"/>
+        <RadioButton Grid.Column="1" Grid.Row="1" FontSize="25" Margin="0,15" GroupName="Flavor" Content="Cherry"/>
+        <RadioButton Grid.Column="1" Grid.Row="2" FontSize="25" Margin="0,15" GroupName="Flavor" Content="Blackberry" />
+        <RadioButton Grid.Column="1" Grid.Row="3" FontSize="25" Margin="0,15" GroupName="Flavor" Content="Grapefruit" />
+        <RadioButton Grid.Column="1" Grid.Row="4" FontSize="25" Margin="0,15" GroupName="Flavor" Content="Lemon"/>
+        <RadioButton Grid.Column="1" Grid.Row="5" FontSize="25" Margin="0,15" GroupName="Flavor" Content="Peach" />
+        <RadioButton Grid.Column="1" Grid.Row="6" FontSize="25" Margin="0,15" GroupName="Flavor" Content="Watermelon" /> 
+    </Grid>  
+</UserControl>
