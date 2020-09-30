@@ -4,6 +4,7 @@
  * Purpose: Represents the option menu for WarriorWater
  */
 
+using BleakwindBuffet.Data.Drinks;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -30,6 +31,13 @@ namespace PointOfSale.DrinkOptions
         public WarriorWaterOptions()
         {
             InitializeComponent();
+            WarriorWater ww = new WarriorWater();
+            DataContext = ww;
+            chkbxIce.DataContext = ww.Ice;
+            chkbxLemon.DataContext = ww.Lemon;
+            rbtnSmall.DataContext = ww.Size;
+            rbtnMedium.DataContext = ww.Size;
+            rbtnLarge.DataContext = ww.Size;
         }
     }
 }

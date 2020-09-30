@@ -4,6 +4,7 @@
  * Purpose: Represents the option menu for FriedMiraak
  */
 
+using BleakwindBuffet.Data.Sides;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -30,6 +31,11 @@ namespace PointOfSale.SideOptions
         public FriedMiraakOptions()
         {
             InitializeComponent();
+            FriedMiraak fm = new FriedMiraak();
+            DataContext = fm;
+            rbtnSmall.DataContext = fm.Size;
+            rbtnMedium.DataContext = fm.Size;
+            rbtnLarge.DataContext = fm.Size;
         }
     }
 }

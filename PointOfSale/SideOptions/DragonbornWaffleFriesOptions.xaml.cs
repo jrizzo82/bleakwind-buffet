@@ -4,6 +4,7 @@
  * Purpose: Represents the option menu for DragonbornWaffleFries
  */
 
+using BleakwindBuffet.Data.Sides;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -30,6 +31,11 @@ namespace PointOfSale.SideOptions
         public DragonbornWaffleFriesOptions()
         {
             InitializeComponent();
+            DragonbornWaffleFries dw = new DragonbornWaffleFries();
+            DataContext = dw;
+            rbtnSmall.DataContext = dw.Size;
+            rbtnMedium.DataContext = dw.Size;
+            rbtnLarge.DataContext = dw.Size;
         }
     }
 }

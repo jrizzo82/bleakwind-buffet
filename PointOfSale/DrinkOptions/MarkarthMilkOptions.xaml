@@ -8,9 +8,9 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel>
         <TextBlock FontSize="30" TextAlignment="Center">Markarth Milk Options</TextBlock>
-        <CheckBox FontSize="25" Margin="0,15" Content="Ice"/>
-        <RadioButton FontSize="25" Margin="0,15" GroupName="Size" Content="Small"/>
-        <RadioButton FontSize="25" Margin="0,15" GroupName="Size" Content="Medium" />
-        <RadioButton FontSize="25" Margin="0,15" GroupName="Size" Content="Large" />
+        <CheckBox Name="chkbxIce" FontSize="25" Margin="0,15" Content="Ice"/>
+        <RadioButton Name="rbtnSmall" FontSize="25" Margin="0,15" GroupName="Size" Content="Small"/>
+        <RadioButton Name="rbtnMedium" FontSize="25" Margin="0,15" GroupName="Size" Content="Medium" />
+        <RadioButton Name="rbtnLarge" FontSize="25" Margin="0,15" GroupName="Size" Content="Large" />
     </StackPanel>
 </UserControl>

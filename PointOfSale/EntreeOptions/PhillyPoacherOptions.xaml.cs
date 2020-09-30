@@ -4,6 +4,7 @@
  * Purpose: Represents the option menu for PhillyPoacher
  */
 
+using BleakwindBuffet.Data.Entrees;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -30,6 +31,11 @@ namespace PointOfSale.EntreeOptions
         public PhillyPoacherOptions()
         {
             InitializeComponent();
+            PhillyPoacher pp = new PhillyPoacher();
+            DataContext = pp;
+            chkbxOnion.DataContext = pp.Onion;
+            chkbxRoll.DataContext = pp.Roll;
+            chkbxSirloin.DataContext = pp.Sirloin;
         }
     }
 }

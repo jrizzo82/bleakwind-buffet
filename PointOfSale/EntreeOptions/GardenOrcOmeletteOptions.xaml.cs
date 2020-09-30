@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data.Entrees;
 
 namespace PointOfSale.EntreeOptions
 {
@@ -30,6 +31,12 @@ namespace PointOfSale.EntreeOptions
         public GardenOrcOmeletteOptions()
         {
             InitializeComponent();
+            GardenOrcOmelette go = new GardenOrcOmelette();
+            DataContext = go;
+            chkbxBroccoli.DataContext = go.Broccoli;
+            chkbxMushrooms.DataContext = go.Mushrooms;
+            chkbxTomato.DataContext = go.Tomato;
+            chkbxCheddar.DataContext = go.Cheddar;
         }
     }
 }

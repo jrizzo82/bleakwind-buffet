@@ -4,6 +4,7 @@
  * Purpose: Represents the option menu for DoubleDraugr
  */
 
+using BleakwindBuffet.Data.Entrees;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -30,6 +31,16 @@ namespace PointOfSale.EntreeOptions
         public DoubleDraugrOptions()
         {
             InitializeComponent();
+            DoubleDraugr dd = new DoubleDraugr();
+            DataContext = dd;
+            chkbxBun.DataContext = dd.Bun;
+            chkbxKetchup.DataContext = dd.Ketchup;
+            chkbxCheese.DataContext = dd.Cheese;
+            chkbxLettuce.DataContext = dd.Lettuce;
+            chkbxMustard.DataContext = dd.Mustard;
+            chkbxMayo.DataContext = dd.Mayo;
+            chkbxTomato.DataContext = dd.Tomato;
+            chkbxPickle.DataContext = dd.Pickle;
         }
     }
 }

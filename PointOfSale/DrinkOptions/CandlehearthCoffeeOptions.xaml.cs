@@ -4,6 +4,7 @@
  * Purpose: Represents the option menu for CandlehearthCoffee
  */
 
+using BleakwindBuffet.Data.Drinks;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -30,6 +31,14 @@ namespace PointOfSale.DrinkOptions
         public CandlehearthCoffeeOptions()
         {
             InitializeComponent();
+            CandlehearthCoffee cc = new CandlehearthCoffee();
+            DataContext = cc;
+            chkbxIce.DataContext = cc.Ice;
+            chkbxCream.DataContext = cc.RoomForCream;
+            chkbxDecaf.DataContext = cc.Decaf;
+            rbtnSmall.DataContext = cc.Size;
+            rbtnMedium.DataContext = cc.Size;
+            rbtnLarge.DataContext = cc.Size;
         }
     }
 }

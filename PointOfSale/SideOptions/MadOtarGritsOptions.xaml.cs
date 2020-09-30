@@ -4,6 +4,7 @@
  * Purpose: Represents the option menu for MadOtarGrits
  */
 
+using BleakwindBuffet.Data.Sides;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -30,6 +31,11 @@ namespace PointOfSale.SideOptions
         public MadOtarGritsOptions()
         {
             InitializeComponent();
+            MadOtarGrits mo = new MadOtarGrits();
+            DataContext = mo;
+            rbtnSmall.DataContext = mo.Size;
+            rbtnMedium.DataContext = mo.Size;
+            rbtnLarge.DataContext = mo.Size;
         }
     }
 }

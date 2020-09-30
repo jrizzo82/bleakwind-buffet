@@ -4,6 +4,7 @@
  * Purpose: Represents the option menu for VokunSalad
  */
 
+using BleakwindBuffet.Data.Sides;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -30,6 +31,11 @@ namespace PointOfSale.SideOptions
         public VokunSaladOptions()
         {
             InitializeComponent();
+            VokunSalad vs = new VokunSalad();
+            DataContext = vs;
+            rbtnSmall.DataContext = vs.Size;
+            rbtnMedium.DataContext = vs.Size;
+            rbtnLarge.DataContext = vs.Size;
         }
     }
 }

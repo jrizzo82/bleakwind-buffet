@@ -4,6 +4,7 @@
  * Purpose: Represents the option menu for AretinoAppleJuice
  */
 
+using BleakwindBuffet.Data.Drinks;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -30,6 +31,12 @@ namespace PointOfSale.DrinkOptions
         public AretinoAppleJuiceOptions()
         {
             InitializeComponent();
+            AretinoAppleJuice aj = new AretinoAppleJuice();
+            DataContext = aj;
+            chkbxIce.DataContext = aj.Ice;
+            rbtnSmall.DataContext = aj.Size;
+            rbtnMedium.DataContext = aj.Size;
+            rbtnLarge.DataContext = aj.Size;
         }
     }
 }

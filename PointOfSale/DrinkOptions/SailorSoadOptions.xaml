@@ -22,15 +22,15 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <TextBlock Grid.ColumnSpan="2" DockPanel.Dock="Top" FontSize="30" TextAlignment="Center">Sailor Soda Options</TextBlock>
-        <CheckBox Grid.Row="1" FontSize="25" Content="Ice"/>
-        <RadioButton Grid.Row="2" FontSize="25" Margin="0,15" GroupName="Size" Content="Small"/>
-        <RadioButton Grid.Row="3" DockPanel.Dock="Top" FontSize="25" Margin="0,15" GroupName="Size" Content="Medium"/>
-        <RadioButton Grid.Row="4" DockPanel.Dock="Top" FontSize="25" Margin="0,15" GroupName="Size" Content="Large"/>
-        <RadioButton Grid.Column="1" Grid.Row="1" FontSize="25" Margin="0,15" GroupName="Flavor" Content="Cherry"/>
-        <RadioButton Grid.Column="1" Grid.Row="2" FontSize="25" Margin="0,15" GroupName="Flavor" Content="Blackberry" />
-        <RadioButton Grid.Column="1" Grid.Row="3" FontSize="25" Margin="0,15" GroupName="Flavor" Content="Grapefruit" />
-        <RadioButton Grid.Column="1" Grid.Row="4" FontSize="25" Margin="0,15" GroupName="Flavor" Content="Lemon"/>
-        <RadioButton Grid.Column="1" Grid.Row="5" FontSize="25" Margin="0,15" GroupName="Flavor" Content="Peach" />
-        <RadioButton Grid.Column="1" Grid.Row="6" FontSize="25" Margin="0,15" GroupName="Flavor" Content="Watermelon" /> 
+        <CheckBox Name="chkbxIce" Grid.Row="1" FontSize="25" Content="Ice"/>
+        <RadioButton Name="rbtnSmall" Grid.Row="2" FontSize="25" Margin="0,15" GroupName="Size" Content="Small"/>
+        <RadioButton Name="rbtnMedium" Grid.Row="3" DockPanel.Dock="Top" FontSize="25" Margin="0,15" GroupName="Size" Content="Medium"/>
+        <RadioButton Name="rbtnLarge" Grid.Row="4" DockPanel.Dock="Top" FontSize="25" Margin="0,15" GroupName="Size" Content="Large"/>
+        <RadioButton Name="rbtnCherry" Grid.Column="1" Grid.Row="1" FontSize="25" Margin="0,15" GroupName="Flavor" Content="Cherry"/>
+        <RadioButton Name="rbtnBlackberry" Grid.Column="1" Grid.Row="2" FontSize="25" Margin="0,15" GroupName="Flavor" Content="Blackberry" />
+        <RadioButton Name="rbtnGrapefruit" Grid.Column="1" Grid.Row="3" FontSize="25" Margin="0,15" GroupName="Flavor" Content="Grapefruit" />
+        <RadioButton Name="rbtnLemon" Grid.Column="1" Grid.Row="4" FontSize="25" Margin="0,15" GroupName="Flavor" Content="Lemon"/>
+        <RadioButton Name="rbtnPeach" Grid.Column="1" Grid.Row="5" FontSize="25" Margin="0,15" GroupName="Flavor" Content="Peach" />
+        <RadioButton Name="rbtnWatermelon" Grid.Column="1" Grid.Row="6" FontSize="25" Margin="0,15" GroupName="Flavor" Content="Watermelon" /> 
     </Grid>  
 </UserControl>

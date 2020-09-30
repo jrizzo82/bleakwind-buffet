@@ -4,6 +4,7 @@
  * Purpose: Represents the option menu for MarkarthMilk
  */
 
+using BleakwindBuffet.Data.Drinks;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -30,6 +31,12 @@ namespace PointOfSale.DrinkOptions
         public MarkarthMilkOptions()
         {
             InitializeComponent();
+            MarkarthMilk mm = new MarkarthMilk();
+            DataContext = mm;
+            chkbxIce.DataContext = mm.Ice;
+            rbtnSmall.DataContext = mm.Size;
+            rbtnMedium.DataContext = mm.Size;
+            rbtnLarge.DataContext = mm.Size;
         }
     }
 }

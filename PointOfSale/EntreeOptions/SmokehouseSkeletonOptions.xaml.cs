@@ -4,6 +4,7 @@
  * Purpose: Represents the option menu for SmokehouseSkeleton
  */
 
+using BleakwindBuffet.Data.Entrees;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -30,6 +31,11 @@ namespace PointOfSale.EntreeOptions
         public SmokehouseSkeletonOptions()
         {
             InitializeComponent();
+            SmokehouseSkeleton ss = new SmokehouseSkeleton();
+            chkbxEgg.DataContext = ss.Egg;
+            chkbxPancakes.DataContext = ss.Pancake;
+            chkbxSausage.DataContext = ss.SausageLink;
+            chkbxHashBrown.DataContext = ss.HashBrowns;
         }
     }
 }

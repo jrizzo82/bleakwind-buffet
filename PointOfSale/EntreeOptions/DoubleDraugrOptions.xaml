@@ -19,13 +19,13 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <TextBlock FontSize="30" TextAlignment="Center">Double Draugr Options</TextBlock>
-        <CheckBox Grid.Row="1" FontSize="25">Bun</CheckBox>
-        <CheckBox Grid.Row="2" FontSize="25">Ketchup</CheckBox>
-        <CheckBox Grid.Row="3" FontSize="25">Mustard</CheckBox>
-        <CheckBox Grid.Row="4" FontSize="25">Pickle</CheckBox>
-        <CheckBox Grid.Row="5" FontSize="25">Cheese</CheckBox>
-        <CheckBox Grid.Row="6" FontSize="25">Tomato</CheckBox>
-        <CheckBox Grid.Row="7" FontSize="25">Lettuce</CheckBox>
-        <CheckBox Grid.Row="8" FontSize="25">Mayo</CheckBox>
+        <CheckBox Name="chkbxBun" Grid.Row="1" FontSize="25">Bun</CheckBox>
+        <CheckBox Name="chkbxKetchup" Grid.Row="2" FontSize="25">Ketchup</CheckBox>
+        <CheckBox Name="chkbxMustard" Grid.Row="3" FontSize="25">Mustard</CheckBox>
+        <CheckBox Name="chkbxPickle" Grid.Row="4" FontSize="25">Pickle</CheckBox>
+        <CheckBox Name="chkbxCheese" Grid.Row="5" FontSize="25">Cheese</CheckBox>
+        <CheckBox Name="chkbxTomato" Grid.Row="6" FontSize="25">Tomato</CheckBox>
+        <CheckBox Name="chkbxLettuce" Grid.Row="7" FontSize="25">Lettuce</CheckBox>
+        <CheckBox Name="chkbxMayo" Grid.Row="8" FontSize="25">Mayo</CheckBox>
     </Grid>
 </UserControl>

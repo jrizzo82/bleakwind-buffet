@@ -18,9 +18,9 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <TextBlock FontSize="30" TextAlignment="Center">Smokehouse Skeleton Options</TextBlock>
-        <CheckBox Grid.Row="1" FontSize="25">Sausage Link</CheckBox>
-        <CheckBox Grid.Row="2" FontSize="25">Egg</CheckBox>
-        <CheckBox Grid.Row="3" FontSize="25">Hash Brown</CheckBox>
-        <CheckBox Grid.Row="4" FontSize="25">Pancakes</CheckBox>
+        <CheckBox Name="chkbxSausage" Grid.Row="1" FontSize="25">Sausage Link</CheckBox>
+        <CheckBox Name="chkbxEgg" Grid.Row="2" FontSize="25">Egg</CheckBox>
+        <CheckBox Name="chkbxHashBrown" Grid.Row="3" FontSize="25">Hash Brown</CheckBox>
+        <CheckBox Name="chkbxPancakes" Grid.Row="4" FontSize="25">Pancakes</CheckBox>
     </Grid>
 </UserControl>

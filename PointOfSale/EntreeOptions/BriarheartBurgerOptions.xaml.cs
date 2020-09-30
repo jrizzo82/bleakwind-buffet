@@ -4,6 +4,7 @@
  * Purpose: Represents the option menu for BriarheartBurger
  */
 
+using BleakwindBuffet.Data.Entrees;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -30,6 +31,13 @@ namespace PointOfSale.EntreeOptions
         public BriarheartBurgerOptions()
         {
             InitializeComponent();
+            BriarheartBurger bb = new BriarheartBurger();
+            DataContext = bb;
+            chkbxBun.DataContext = bb.Bun;
+            chkbxCheese.DataContext = bb.Cheese;
+            chkbxKetchup.DataContext = bb.Ketchup;
+            chkbxMustard.DataContext = bb.Mustard;
+            chkbxPickle.DataContext = bb.Pickle;
         }
     }
 }

@@ -4,6 +4,7 @@
  * Purpose: Represents the option menu for ThalmorTriple
  */
 
+using BleakwindBuffet.Data.Entrees;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -30,6 +31,18 @@ namespace PointOfSale.EntreeOptions
         public ThalmorTripleOptions()
         {
             InitializeComponent();
+            ThalmorTriple tt = new ThalmorTriple();
+            DataContext = tt;
+            chkbxBacon.DataContext = tt.Bacon;
+            chkbxBun.DataContext = tt.Bun;
+            chkbxKetchup.DataContext = tt.Ketchup;
+            chkbxMustard.DataContext = tt.Mustard;
+            chkbxMayo.DataContext = tt.Mayo;
+            chkbxTomato.DataContext = tt.Tomato;
+            chkbxPickle.DataContext = tt.Pickle;
+            chkbxLettuce.DataContext = tt.Lettuce;
+            chkbxEgg.DataContext = tt.Egg;
+            chkbxCheese.DataContext = tt.Cheese;
         }
     }
 }
