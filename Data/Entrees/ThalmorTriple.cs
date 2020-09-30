@@ -7,13 +7,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// Class for Thalmor Triple entree.
     /// </summary>
-    public class ThalmorTriple : Entree, IOrderItem
+    public class ThalmorTriple : Entree, IOrderItem, INotifyPropertyChanged
     {
         private bool bun = true;
         private bool ketchup = true;
@@ -25,6 +26,11 @@ namespace BleakwindBuffet.Data.Entrees
         private bool mayo = true;
         private bool bacon = true;
         private bool egg = true;
+
+        /// <summary>
+        /// Event handler for when a property is changed.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// The entree price.
@@ -59,7 +65,12 @@ namespace BleakwindBuffet.Data.Entrees
             }
             set
             {
-                this.bun = value;
+                if (this.bun != value)
+                {
+                    this.bun = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bun"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
             }
         }
 
@@ -74,7 +85,12 @@ namespace BleakwindBuffet.Data.Entrees
             }
             set
             {
-                this.ketchup = value;
+                if (this.ketchup != value)
+                {
+                    this.ketchup = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ketchup"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
             }
         }
 
@@ -89,7 +105,12 @@ namespace BleakwindBuffet.Data.Entrees
             }
             set
             {
-                this.mustard = value;
+                if (this.mustard != value)
+                {
+                    this.mustard = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mustard"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
             }
         }
 
@@ -104,7 +125,12 @@ namespace BleakwindBuffet.Data.Entrees
             }
             set
             {
-                this.pickle = value;
+                if (this.pickle != value)
+                {
+                    this.pickle = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pickle"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
             }
         }
 
@@ -119,7 +145,12 @@ namespace BleakwindBuffet.Data.Entrees
             }
             set
             {
-                this.cheese = value;
+                if (this.cheese != value)
+                {
+                    this.cheese = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheese"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
             }
         }
 
@@ -134,7 +165,12 @@ namespace BleakwindBuffet.Data.Entrees
             }
             set
             {
-                this.tomato = value;
+                if (this.tomato != value)
+                {
+                    this.tomato = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tomato"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
             }
         }
 
@@ -149,7 +185,12 @@ namespace BleakwindBuffet.Data.Entrees
             }
             set
             {
-                this.lettuce = value;
+                if (this.lettuce != value)
+                {
+                    this.lettuce = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lettuce"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
             }
         }
 
@@ -164,7 +205,12 @@ namespace BleakwindBuffet.Data.Entrees
             }
             set
             {
-                this.mayo = value;
+                if (this.mayo != value)
+                {
+                    this.mayo = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mayo"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
             }
         }
 
@@ -179,7 +225,12 @@ namespace BleakwindBuffet.Data.Entrees
             }
             set
             {
-                this.bacon = value;
+                if (this.bacon != value)
+                {
+                    this.bacon = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bacon"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
             }
         }
 
@@ -194,7 +245,12 @@ namespace BleakwindBuffet.Data.Entrees
             }
             set
             {
-                this.egg = value;
+                if (this.egg != value)
+                {
+                    this.egg = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Egg"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
             }
         }
 

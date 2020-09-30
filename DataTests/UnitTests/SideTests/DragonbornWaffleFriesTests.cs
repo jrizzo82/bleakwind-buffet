@@ -8,6 +8,7 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Sides;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 {
@@ -87,6 +88,40 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         {
             DragonbornWaffleFries dw = new DragonbornWaffleFries();
             Assert.IsAssignableFrom<Side>(dw);
+        }
+
+        [Fact]
+        public void ShouldNotifySizeChange()
+        {
+            DragonbornWaffleFries dw = new DragonbornWaffleFries();
+            Assert.PropertyChanged(dw, "Size", () => dw.Size = Size.Medium);
+            Assert.PropertyChanged(dw, "Size", () => dw.Size = Size.Large);
+            Assert.PropertyChanged(dw, "Size", () => dw.Size = Size.Small);
+        }
+
+        [Fact]
+        public void ShouldNotifyPriceChange()
+        {
+            DragonbornWaffleFries dw = new DragonbornWaffleFries();
+            Assert.PropertyChanged(dw, "Price", () => dw.Size = Size.Medium);
+            Assert.PropertyChanged(dw, "Price", () => dw.Size = Size.Large);
+            Assert.PropertyChanged(dw, "Price", () => dw.Size = Size.Small);
+        }
+
+        [Fact]
+        public void ShouldNotifyCaloriesChange()
+        {
+            DragonbornWaffleFries dw = new DragonbornWaffleFries();
+            Assert.PropertyChanged(dw, "Calories", () => dw.Size = Size.Medium);
+            Assert.PropertyChanged(dw, "Calories", () => dw.Size = Size.Large);
+            Assert.PropertyChanged(dw, "Calories", () => dw.Size = Size.Small);
+        }
+
+        [Fact]
+        public void ShouldBeAssignableToINotifyPropertyChanged()
+        {
+            DragonbornWaffleFries dw = new DragonbornWaffleFries();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(dw);
         }
     }
 }

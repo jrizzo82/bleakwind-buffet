@@ -7,6 +7,7 @@ using Xunit;
 
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -139,6 +140,59 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             GardenOrcOmelette go = new GardenOrcOmelette();
             Assert.IsAssignableFrom<Entree>(go);
+        }
+
+        [Fact]
+        public void ShouldNotifyBroccoliChange()
+        {
+            GardenOrcOmelette go = new GardenOrcOmelette();
+            Assert.PropertyChanged(go, "Broccoli", () => go.Broccoli = false);
+            Assert.PropertyChanged(go, "Broccoli", () => go.Broccoli = true);
+        }
+
+        [Fact]
+        public void ShouldNotifyMushroomsChange()
+        {
+            GardenOrcOmelette go = new GardenOrcOmelette();
+            Assert.PropertyChanged(go, "Mushrooms", () => go.Mushrooms = false);
+            Assert.PropertyChanged(go, "Mushrooms", () => go.Mushrooms = true);
+        }
+
+        [Fact]
+        public void ShouldNotifyTomatoChange()
+        {
+            GardenOrcOmelette go = new GardenOrcOmelette();
+            Assert.PropertyChanged(go, "Tomato", () => go.Tomato = false);
+            Assert.PropertyChanged(go, "Tomato", () => go.Tomato = true);
+        }
+
+        [Fact]
+        public void ShouldNotifyCheddarChange()
+        {
+            GardenOrcOmelette go = new GardenOrcOmelette();
+            Assert.PropertyChanged(go, "Cheddar", () => go.Cheddar = false);
+            Assert.PropertyChanged(go, "Cheddar", () => go.Cheddar = true);
+        }
+
+        [Fact]
+        public void ShouldNotifySpecialInstructionsChange()
+        {
+            GardenOrcOmelette go = new GardenOrcOmelette();
+            Assert.PropertyChanged(go, "SpecialInstructions", () => go.Broccoli = false);
+            Assert.PropertyChanged(go, "SpecialInstructions", () => go.Broccoli = true);
+            Assert.PropertyChanged(go, "SpecialInstructions", () => go.Mushrooms = false);
+            Assert.PropertyChanged(go, "SpecialInstructions", () => go.Mushrooms = true);
+            Assert.PropertyChanged(go, "SpecialInstructions", () => go.Tomato = false);
+            Assert.PropertyChanged(go, "SpecialInstructions", () => go.Tomato = true);
+            Assert.PropertyChanged(go, "SpecialInstructions", () => go.Cheddar = false);
+            Assert.PropertyChanged(go, "SpecialInstructions", () => go.Cheddar = true);
+        }
+
+        [Fact]
+        public void ShouldBeAssignableToINotifyPropertyChanged()
+        {
+            GardenOrcOmelette go = new GardenOrcOmelette();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(go);
         }
     }
 }

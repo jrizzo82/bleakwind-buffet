@@ -7,17 +7,23 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// Class for Philly Poacher entree.
     /// </summary>
-    public class PhillyPoacher : Entree, IOrderItem
+    public class PhillyPoacher : Entree, IOrderItem, INotifyPropertyChanged
     {
         private bool sirloin = true;
         private bool onion = true;
         private bool roll = true;
+
+        /// <summary>
+        /// Event handler for when a property is changed.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// The entree price.
@@ -52,7 +58,12 @@ namespace BleakwindBuffet.Data.Entrees
             }
             set
             {
-                this.sirloin = value;
+                if (this.sirloin != value)
+                {
+                    this.sirloin = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Sirloin"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
             }
         }
 
@@ -67,7 +78,12 @@ namespace BleakwindBuffet.Data.Entrees
             }
             set
             {
-                this.onion = value;
+                if (this.onion != value)
+                {
+                    this.onion = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Onion"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
             }
         }
 
@@ -82,7 +98,12 @@ namespace BleakwindBuffet.Data.Entrees
             }
             set
             {
-                this.roll = value;
+                if (this.roll != value)
+                {
+                    this.roll = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Roll"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
             }
         }
 

@@ -7,6 +7,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 using BleakwindBuffet.Data.Enums;
 
 
@@ -15,12 +16,17 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// Class for Warrior Water drink.
     /// </summary>
-    public class WarriorWater : Drink, IOrderItem
+    public class WarriorWater : Drink, IOrderItem, INotifyPropertyChanged
     {
         private bool ice = true;
         private Size size = Size.Small;
         private bool lemon = false;
-        
+
+        /// <summary>
+        /// Event handler for when a property is changed.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// The drink's price.
         /// </summary>
@@ -54,7 +60,12 @@ namespace BleakwindBuffet.Data.Drinks
             }
             set
             {
-                this.ice = value;
+                if (this.ice != value)
+                {
+                    this.ice = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
             }
         }
 
@@ -69,7 +80,12 @@ namespace BleakwindBuffet.Data.Drinks
             }
             set
             {
-                this.lemon = value;
+                if (this.lemon != value)
+                {
+                    this.lemon = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lemon"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
             }
         }
 
@@ -84,7 +100,11 @@ namespace BleakwindBuffet.Data.Drinks
             }
             set
             {
-                this.size = value;
+                if (this.size != value)
+                {
+                    this.size = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                }
             }
         }
 

@@ -8,6 +8,7 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Sides;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 {
@@ -87,6 +88,40 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         {
             MadOtarGrits mo = new MadOtarGrits();
             Assert.IsAssignableFrom<Side>(mo);
+        }
+
+        [Fact]
+        public void ShouldNotifySizeChange()
+        {
+            MadOtarGrits mo = new MadOtarGrits();
+            Assert.PropertyChanged(mo, "Size", () => mo.Size = Size.Medium);
+            Assert.PropertyChanged(mo, "Size", () => mo.Size = Size.Large);
+            Assert.PropertyChanged(mo, "Size", () => mo.Size = Size.Small);
+        }
+
+        [Fact]
+        public void ShouldNotifyPriceChange()
+        {
+            MadOtarGrits mo = new MadOtarGrits();
+            Assert.PropertyChanged(mo, "Price", () => mo.Size = Size.Medium);
+            Assert.PropertyChanged(mo, "Price", () => mo.Size = Size.Large);
+            Assert.PropertyChanged(mo, "Price", () => mo.Size = Size.Small);
+        }
+
+        [Fact]
+        public void ShouldNotifyCaloriesChange()
+        {
+            MadOtarGrits mo = new MadOtarGrits();
+            Assert.PropertyChanged(mo, "Calories", () => mo.Size = Size.Medium);
+            Assert.PropertyChanged(mo, "Calories", () => mo.Size = Size.Large);
+            Assert.PropertyChanged(mo, "Calories", () => mo.Size = Size.Small);
+        }
+
+        [Fact]
+        public void ShouldBeAssignableToINotifyPropertyChanged()
+        {
+            MadOtarGrits mo = new MadOtarGrits();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(mo);
         }
     }
 }

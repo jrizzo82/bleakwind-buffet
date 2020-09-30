@@ -7,6 +7,7 @@ using Xunit;
 
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -139,6 +140,59 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             SmokehouseSkeleton ss = new SmokehouseSkeleton();
             Assert.IsAssignableFrom<Entree>(ss);
+        }
+
+        [Fact]
+        public void ShouldNotifySausageLinkChange()
+        {
+            SmokehouseSkeleton ss = new SmokehouseSkeleton();
+            Assert.PropertyChanged(ss, "SausageLink", () => ss.SausageLink = false);
+            Assert.PropertyChanged(ss, "SausageLink", () => ss.SausageLink = true);
+        }
+
+        [Fact]
+        public void ShouldNotifyEggChange()
+        {
+            SmokehouseSkeleton ss = new SmokehouseSkeleton();
+            Assert.PropertyChanged(ss, "Egg", () => ss.Egg = false);
+            Assert.PropertyChanged(ss, "Egg", () => ss.Egg = true);
+        }
+
+        [Fact]
+        public void ShouldNotifyHashBrownsChange()
+        {
+            SmokehouseSkeleton ss = new SmokehouseSkeleton();
+            Assert.PropertyChanged(ss, "HashBrowns", () => ss.HashBrowns = false);
+            Assert.PropertyChanged(ss, "HashBrowns", () => ss.HashBrowns = true);
+        }
+
+        [Fact]
+        public void ShouldNotifyPancakeChange()
+        {
+            SmokehouseSkeleton ss = new SmokehouseSkeleton();
+            Assert.PropertyChanged(ss, "Pancake", () => ss.Pancake = false);
+            Assert.PropertyChanged(ss, "Pancake", () => ss.Pancake = true);
+        }
+
+        [Fact]
+        public void ShouldNotifySpecialInstructionsChange()
+        {
+            SmokehouseSkeleton ss = new SmokehouseSkeleton();
+            Assert.PropertyChanged(ss, "SpecialInstructions", () => ss.SausageLink = false);
+            Assert.PropertyChanged(ss, "SpecialInstructions", () => ss.SausageLink = true);
+            Assert.PropertyChanged(ss, "SpecialInstructions", () => ss.Egg = false);
+            Assert.PropertyChanged(ss, "SpecialInstructions", () => ss.Egg = true);
+            Assert.PropertyChanged(ss, "SpecialInstructions", () => ss.HashBrowns = false);
+            Assert.PropertyChanged(ss, "SpecialInstructions", () => ss.HashBrowns = true);
+            Assert.PropertyChanged(ss, "SpecialInstructions", () => ss.Pancake = false);
+            Assert.PropertyChanged(ss, "SpecialInstructions", () => ss.Pancake = true);
+        }
+
+        [Fact]
+        public void ShouldBeAssignableToINotifyPropertyChanged()
+        {
+            SmokehouseSkeleton ss = new SmokehouseSkeleton();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(ss);
         }
     }
 }

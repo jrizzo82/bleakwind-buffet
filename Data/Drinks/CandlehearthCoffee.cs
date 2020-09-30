@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
+using System.ComponentModel;
 
 
 namespace BleakwindBuffet.Data.Drinks
@@ -15,7 +16,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// Class for Candlehearth Coffee drink.
     /// </summary>
-    public class CandlehearthCoffee : Drink, IOrderItem
+    public class CandlehearthCoffee : Drink, IOrderItem, INotifyPropertyChanged
     {
         private bool ice = false;
         private Size size = Size.Small;
@@ -71,7 +72,12 @@ namespace BleakwindBuffet.Data.Drinks
             }
             set
             {
-                this.ice = value;
+                if (this.ice != value)
+                {
+                    this.ice = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
             }
         }
 
@@ -86,7 +92,12 @@ namespace BleakwindBuffet.Data.Drinks
             }
             set
             {
-                this.roomForCream = value;
+                if (this.roomForCream != value)
+                {
+                    this.roomForCream = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("RoomForCream"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
             }
         }
 
@@ -101,7 +112,11 @@ namespace BleakwindBuffet.Data.Drinks
             }
             set
             {
-                this.decaf = value;
+                if (this.decaf != value)
+                {
+                    this.decaf = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Decaf"));
+                }
             }
         }
 
@@ -116,7 +131,13 @@ namespace BleakwindBuffet.Data.Drinks
             }
             set
             {
-                this.size = value;
+                if (this.size != value)
+                {
+                    this.size = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                }
             }
         }
 
@@ -136,6 +157,11 @@ namespace BleakwindBuffet.Data.Drinks
                 return sInst;
             }
         }
+
+        /// <summary>
+        /// Event handler for when a property is changed.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// The name of the drink.

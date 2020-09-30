@@ -8,17 +8,24 @@ using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
+
 
 namespace BleakwindBuffet.Data.Drinks
 {
     /// <summary>
     /// Class for Sailor Soda drink.
     /// </summary>
-    public class SailorSoda : Drink, IOrderItem
+    public class SailorSoda : Drink, IOrderItem, INotifyPropertyChanged
     {
         private bool ice = true;
         private Size size = Size.Small;
         private SodaFlavor flavor = SodaFlavor.Cherry;
+
+        /// <summary>
+        /// Event handler for when a property is changed.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// The drink's price.
@@ -69,7 +76,12 @@ namespace BleakwindBuffet.Data.Drinks
             }
             set
             {
-                this.ice = value;
+                if (this.ice != value)
+                {
+                    this.ice = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
             }
         }
 
@@ -84,7 +96,13 @@ namespace BleakwindBuffet.Data.Drinks
             }
             set
             {
-                this.size = value;
+                if (this.size != value)
+                {
+                    this.size = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                }
             }
         }
 
@@ -99,7 +117,11 @@ namespace BleakwindBuffet.Data.Drinks
             }
             set
             {
-                this.flavor = value;
+                if (this.flavor != value)
+                {
+                    this.flavor = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Flavor"));
+                }
             }
         }
 

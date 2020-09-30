@@ -8,6 +8,7 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Drinks;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
@@ -153,6 +154,74 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         {
             CandlehearthCoffee ch = new CandlehearthCoffee();
             Assert.IsAssignableFrom<Drink>(ch);
+        }
+
+        [Fact]
+        public void ShouldNotifySizeChange()
+        {
+            CandlehearthCoffee ch = new CandlehearthCoffee();
+            Assert.PropertyChanged(ch, "Size", () => ch.Size = Size.Medium);
+            Assert.PropertyChanged(ch, "Size", () => ch.Size = Size.Large);
+            Assert.PropertyChanged(ch, "Size", () => ch.Size = Size.Small);
+        }
+
+        [Fact]
+        public void ShouldNotifyPriceChange()
+        {
+            CandlehearthCoffee ch = new CandlehearthCoffee();
+            Assert.PropertyChanged(ch, "Price", () => ch.Size = Size.Medium);
+            Assert.PropertyChanged(ch, "Price", () => ch.Size = Size.Large);
+            Assert.PropertyChanged(ch, "Price", () => ch.Size = Size.Small);
+        }
+
+        [Fact]
+        public void ShouldNotifyCaloriesChange()
+        {
+            CandlehearthCoffee ch = new CandlehearthCoffee();
+            Assert.PropertyChanged(ch, "Calories", () => ch.Size = Size.Medium);
+            Assert.PropertyChanged(ch, "Calories", () => ch.Size = Size.Large);
+            Assert.PropertyChanged(ch, "Calories", () => ch.Size = Size.Small);
+        }
+
+        [Fact]
+        public void ShouldNotifyIceChange()
+        {
+            CandlehearthCoffee ch = new CandlehearthCoffee();
+            Assert.PropertyChanged(ch, "Ice", () => ch.Ice = true);
+            Assert.PropertyChanged(ch, "Ice", () => ch.Ice = false);
+        }
+
+        [Fact]
+        public void ShouldNotifyRoomForCreamChange()
+        {
+            CandlehearthCoffee ch = new CandlehearthCoffee();
+            Assert.PropertyChanged(ch, "RoomForCream", () => ch.RoomForCream = true);
+            Assert.PropertyChanged(ch, "RoomForCream", () => ch.RoomForCream = false);
+        }
+
+        [Fact]
+        public void ShouldNotifyDecafChange()
+        {
+            CandlehearthCoffee ch = new CandlehearthCoffee();
+            Assert.PropertyChanged(ch, "Decaf", () => ch.Decaf = true);
+            Assert.PropertyChanged(ch, "Decaf", () => ch.Decaf = false);
+        }
+
+        [Fact]
+        public void ShouldNotifySpecialInstructionsChange()
+        {
+            CandlehearthCoffee ch = new CandlehearthCoffee();
+            Assert.PropertyChanged(ch, "SpecialInstructions", () => ch.Ice = true);
+            Assert.PropertyChanged(ch, "SpecialInstructions", () => ch.Ice = false);
+            Assert.PropertyChanged(ch, "SpecialInstructions", () => ch.RoomForCream = true);
+            Assert.PropertyChanged(ch, "SpecialInstructions", () => ch.RoomForCream = false);
+        }
+
+        [Fact]
+        public void ShouldBeAssignableToINotifyPropertyChanged()
+        {
+            CandlehearthCoffee ch = new CandlehearthCoffee();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(ch);
         }
     }
 }

@@ -9,6 +9,7 @@ using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
 using NuGet.Frameworks;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
@@ -111,6 +112,56 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         {
             AretinoAppleJuice aj = new AretinoAppleJuice();
             Assert.IsAssignableFrom<Drink>(aj);
+        }
+
+        [Fact]
+        public void ShouldNotifySizeChange()
+        {
+            AretinoAppleJuice aj = new AretinoAppleJuice();           
+            Assert.PropertyChanged(aj, "Size", () => aj.Size = Size.Medium);
+            Assert.PropertyChanged(aj, "Size", () => aj.Size = Size.Large);
+            Assert.PropertyChanged(aj, "Size", () => aj.Size = Size.Small);
+        }
+
+        [Fact]
+        public void ShouldNotifyPriceChange()
+        {
+            AretinoAppleJuice aj = new AretinoAppleJuice();
+            Assert.PropertyChanged(aj, "Price", () => aj.Size = Size.Medium);
+            Assert.PropertyChanged(aj, "Price", () => aj.Size = Size.Large);
+            Assert.PropertyChanged(aj, "Price", () => aj.Size = Size.Small);
+        }
+
+        [Fact]
+        public void ShouldNotifyCaloriesChange()
+        {
+            AretinoAppleJuice aj = new AretinoAppleJuice();
+            Assert.PropertyChanged(aj, "Calories", () => aj.Size = Size.Medium);
+            Assert.PropertyChanged(aj, "Calories", () => aj.Size = Size.Large);
+            Assert.PropertyChanged(aj, "Calories", () => aj.Size = Size.Small);
+        }
+
+        [Fact]
+        public void ShouldNotifyIceChange()
+        {
+            AretinoAppleJuice aj = new AretinoAppleJuice();
+            Assert.PropertyChanged(aj, "Ice", () => aj.Ice = true);
+            Assert.PropertyChanged(aj, "Ice", () => aj.Ice = false);
+        }
+
+        [Fact]
+        public void ShouldNotifySpecialInstructionsChange()
+        {
+            AretinoAppleJuice aj = new AretinoAppleJuice();
+            Assert.PropertyChanged(aj, "SpecialInstructions", () => aj.Ice = true);
+            Assert.PropertyChanged(aj, "SpecialInstructions", () => aj.Ice = false);
+        }
+
+        [Fact]
+        public void ShouldBeAssignableToINotifyPropertyChanged()
+        {
+            AretinoAppleJuice aj = new AretinoAppleJuice();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(aj);
         }
     }
 }
