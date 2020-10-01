@@ -18,9 +18,9 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <TextBlock FontSize="30" TextAlignment="Center">Garden Orc Omelette Options</TextBlock>
-        <CheckBox Name="chkbxBroccoli" Grid.Row="1" FontSize="25">Broccoli</CheckBox>
-        <CheckBox Name="chkbxMushrooms" Grid.Row="2" FontSize="25">Mushrooms</CheckBox>
-        <CheckBox Name="chkbxTomato" Grid.Row="3" FontSize="25">Tomato</CheckBox>
-        <CheckBox Name="chkbxCheddar" Grid.Row="4" FontSize="25">Cheddar</CheckBox>
+        <CheckBox IsChecked ="{Binding Path=Broccoli}" Name="chkbxBroccoli" Grid.Row="1" FontSize="25">Broccoli</CheckBox>
+        <CheckBox IsChecked ="{Binding Path=Mushrooms}" Name="chkbxMushrooms" Grid.Row="2" FontSize="25">Mushrooms</CheckBox>
+        <CheckBox IsChecked ="{Binding Path=Tomato}" Name="chkbxTomato" Grid.Row="3" FontSize="25">Tomato</CheckBox>
+        <CheckBox IsChecked ="{Binding Path=Cheddar}" Name="chkbxCheddar" Grid.Row="4" FontSize="25">Cheddar</CheckBox>
     </Grid>
 </UserControl>

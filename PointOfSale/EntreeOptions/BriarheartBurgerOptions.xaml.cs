@@ -33,11 +33,6 @@ namespace PointOfSale.EntreeOptions
             InitializeComponent();
             BriarheartBurger bb = new BriarheartBurger();
             DataContext = bb;
-            chkbxBun.DataContext = bb.Bun;
-            chkbxCheese.DataContext = bb.Cheese;
-            chkbxKetchup.DataContext = bb.Ketchup;
-            chkbxMustard.DataContext = bb.Mustard;
-            chkbxPickle.DataContext = bb.Pickle;
         }
     }
 }

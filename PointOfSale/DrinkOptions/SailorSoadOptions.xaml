@@ -3,10 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:data="clr-namespace:BleakwindBuffet.Data.Enums;assembly=Data"
              xmlns:local="clr-namespace:PointOfSale.DrinkOptions"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    
+    <UserControl.Resources>
+        <ObjectDataProvider x:Key="size" ObjectType="system:Enum" MethodName="GetValues">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="data:Size"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider x:Key="flavor" ObjectType="system:Enum" MethodName="GetValues">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="data:SodaFlavor"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -14,23 +27,15 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="9*"/>
         </Grid.RowDefinitions>
         <TextBlock Grid.ColumnSpan="2" DockPanel.Dock="Top" FontSize="30" TextAlignment="Center">Sailor Soda Options</TextBlock>
-        <CheckBox Name="chkbxIce" Grid.Row="1" FontSize="25" Content="Ice"/>
-        <RadioButton Name="rbtnSmall" Grid.Row="2" FontSize="25" Margin="0,15" GroupName="Size" Content="Small"/>
-        <RadioButton Name="rbtnMedium" Grid.Row="3" DockPanel.Dock="Top" FontSize="25" Margin="0,15" GroupName="Size" Content="Medium"/>
-        <RadioButton Name="rbtnLarge" Grid.Row="4" DockPanel.Dock="Top" FontSize="25" Margin="0,15" GroupName="Size" Content="Large"/>
-        <RadioButton Name="rbtnCherry" Grid.Column="1" Grid.Row="1" FontSize="25" Margin="0,15" GroupName="Flavor" Content="Cherry"/>
-        <RadioButton Name="rbtnBlackberry" Grid.Column="1" Grid.Row="2" FontSize="25" Margin="0,15" GroupName="Flavor" Content="Blackberry" />
-        <RadioButton Name="rbtnGrapefruit" Grid.Column="1" Grid.Row="3" FontSize="25" Margin="0,15" GroupName="Flavor" Content="Grapefruit" />
-        <RadioButton Name="rbtnLemon" Grid.Column="1" Grid.Row="4" FontSize="25" Margin="0,15" GroupName="Flavor" Content="Lemon"/>
-        <RadioButton Name="rbtnPeach" Grid.Column="1" Grid.Row="5" FontSize="25" Margin="0,15" GroupName="Flavor" Content="Peach" />
-        <RadioButton Name="rbtnWatermelon" Grid.Column="1" Grid.Row="6" FontSize="25" Margin="0,15" GroupName="Flavor" Content="Watermelon" /> 
+        <StackPanel Grid.Row="2">
+            <CheckBox IsChecked ="{Binding Path=Ice}" Name="chkbxIce" FontSize="25" Content="Ice"/>
+            <ListBox ItemsSource="{Binding Source={StaticResource size}}" FontSize="25" SelectedItem="{Binding Path=Size}"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="2">
+            <ListBox ItemsSource="{Binding Source={StaticResource flavor}}" FontSize="25" SelectedItem="{Binding Path=Flavor}"/>
+        </StackPanel>
     </Grid>  
 </UserControl>

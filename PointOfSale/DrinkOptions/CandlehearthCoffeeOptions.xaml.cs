@@ -33,12 +33,6 @@ namespace PointOfSale.DrinkOptions
             InitializeComponent();
             CandlehearthCoffee cc = new CandlehearthCoffee();
             DataContext = cc;
-            chkbxIce.DataContext = cc.Ice;
-            chkbxCream.DataContext = cc.RoomForCream;
-            chkbxDecaf.DataContext = cc.Decaf;
-            rbtnSmall.DataContext = cc.Size;
-            rbtnMedium.DataContext = cc.Size;
-            rbtnLarge.DataContext = cc.Size;
         }
     }
 }

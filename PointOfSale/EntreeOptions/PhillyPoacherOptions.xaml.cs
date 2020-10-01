@@ -33,9 +33,6 @@ namespace PointOfSale.EntreeOptions
             InitializeComponent();
             PhillyPoacher pp = new PhillyPoacher();
             DataContext = pp;
-            chkbxOnion.DataContext = pp.Onion;
-            chkbxRoll.DataContext = pp.Roll;
-            chkbxSirloin.DataContext = pp.Sirloin;
         }
     }
 }

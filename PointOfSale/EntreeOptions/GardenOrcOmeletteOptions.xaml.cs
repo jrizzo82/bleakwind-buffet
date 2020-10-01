@@ -33,10 +33,6 @@ namespace PointOfSale.EntreeOptions
             InitializeComponent();
             GardenOrcOmelette go = new GardenOrcOmelette();
             DataContext = go;
-            chkbxBroccoli.DataContext = go.Broccoli;
-            chkbxMushrooms.DataContext = go.Mushrooms;
-            chkbxTomato.DataContext = go.Tomato;
-            chkbxCheddar.DataContext = go.Cheddar;
         }
     }
 }

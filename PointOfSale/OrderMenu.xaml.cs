@@ -196,43 +196,6 @@ namespace PointOfSale
         /// <param name="e"></param>
         void btnAddClk(object sender, RoutedEventArgs e)
         {
-            if (menuBorder.Child is BriarheartBurgerOptions)
-            {
-                BriarheartBurgerOptions bbo = (BriarheartBurgerOptions)menuBorder.Child;
-                BriarheartBurger bb = new BriarheartBurger();
-                bb.Bun = (bool)bbo.chkbxBun.IsChecked;
-                bb.Ketchup = (bool)bbo.chkbxKetchup.IsChecked;
-                bb.Mustard = (bool)bbo.chkbxMustard.IsChecked;
-                bb.Pickle = (bool)bbo.chkbxPickle.IsChecked;
-                bb.Cheese = (bool)bbo.chkbxCheese.IsChecked;
-                menuListView.Items.Add(bb);
-                foreach (string s in bb.SpecialInstructions)
-                    menuListView.Items.Add("\t"+s);
-            }
-            else if (menuBorder.Child is CandlehearthCoffeeOptions)
-            {
-                CandlehearthCoffeeOptions cco = (CandlehearthCoffeeOptions)menuBorder.Child;
-                CandlehearthCoffee cc = new CandlehearthCoffee();
-                cc.Ice = (bool)cco.chkbxIce.IsChecked;
-                cc.RoomForCream = (bool)cco.chkbxCream.IsChecked;
-                cc.Decaf = (bool)cco.chkbxDecaf.IsChecked;
-                if ((bool)cco.rbtnSmall.IsChecked)
-                {
-                    cc.Size = BleakwindBuffet.Data.Enums.Size.Small;
-                }
-                else if ((bool)cco.rbtnMedium.IsChecked)
-                {
-                    cc.Size = BleakwindBuffet.Data.Enums.Size.Medium;
-                }
-                else 
-                {
-                    cc.Size = BleakwindBuffet.Data.Enums.Size.Large;
-                }
-                menuListView.Items.Add(cc);
-                foreach (string s in cc.SpecialInstructions)
-                    menuListView.Items.Add("\t" + s);
-            }
-            // TODO: Finish This
 
         }
 

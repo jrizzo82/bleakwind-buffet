@@ -33,9 +33,6 @@ namespace PointOfSale.SideOptions
             InitializeComponent();
             MadOtarGrits mo = new MadOtarGrits();
             DataContext = mo;
-            rbtnSmall.DataContext = mo.Size;
-            rbtnMedium.DataContext = mo.Size;
-            rbtnLarge.DataContext = mo.Size;
         }
     }
 }

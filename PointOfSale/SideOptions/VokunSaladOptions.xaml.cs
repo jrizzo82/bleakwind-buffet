@@ -33,9 +33,6 @@ namespace PointOfSale.SideOptions
             InitializeComponent();
             VokunSalad vs = new VokunSalad();
             DataContext = vs;
-            rbtnSmall.DataContext = vs.Size;
-            rbtnMedium.DataContext = vs.Size;
-            rbtnLarge.DataContext = vs.Size;
         }
     }
 }

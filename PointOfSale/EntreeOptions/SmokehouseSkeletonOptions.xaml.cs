@@ -32,10 +32,7 @@ namespace PointOfSale.EntreeOptions
         {
             InitializeComponent();
             SmokehouseSkeleton ss = new SmokehouseSkeleton();
-            chkbxEgg.DataContext = ss.Egg;
-            chkbxPancakes.DataContext = ss.Pancake;
-            chkbxSausage.DataContext = ss.SausageLink;
-            chkbxHashBrown.DataContext = ss.HashBrowns;
+            DataContext = ss;
         }
     }
 }

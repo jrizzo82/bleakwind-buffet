@@ -19,11 +19,11 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <TextBlock FontSize="30" TextAlignment="Center">Briarheart Burger Options</TextBlock>
-        <CheckBox Name="chkbxBun" Grid.Row="1" FontSize="25">Bun</CheckBox>
-        <CheckBox Name="chkbxKetchup" Grid.Row="2" FontSize="25">Ketchup</CheckBox>
-        <CheckBox Name="chkbxMustard" Grid.Row="3" FontSize="25">Mustard</CheckBox>
-        <CheckBox Name="chkbxPickle" Grid.Row="4" FontSize="25">Pickle</CheckBox>
-        <CheckBox Name="chkbxCheese" Grid.Row="5" FontSize="25">Cheese</CheckBox>
+        <CheckBox IsChecked ="{Binding Path=Bun}" Name="chkbxBun" Grid.Row="1" FontSize="25">Bun</CheckBox>
+        <CheckBox IsChecked ="{Binding Path=Ketchup}" Name="chkbxKetchup" Grid.Row="2" FontSize="25">Ketchup</CheckBox>
+        <CheckBox IsChecked ="{Binding Path=Mustard}" Name="chkbxMustard" Grid.Row="3" FontSize="25">Mustard</CheckBox>
+        <CheckBox IsChecked ="{Binding Path=Pickle}" Name="chkbxPickle" Grid.Row="4" FontSize="25">Pickle</CheckBox>
+        <CheckBox IsChecked ="{Binding Path=Cheese}" Name="chkbxCheese" Grid.Row="5" FontSize="25">Cheese</CheckBox>
     </Grid>
 
 </UserControl>

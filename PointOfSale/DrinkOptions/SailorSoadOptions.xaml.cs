@@ -33,16 +33,6 @@ namespace PointOfSale.DrinkOptions
             InitializeComponent();
             SailorSoda ss = new SailorSoda();
             DataContext = ss;
-            chkbxIce.DataContext = ss.Ice;
-            rbtnSmall.DataContext = ss.Size;
-            rbtnMedium.DataContext = ss.Size;
-            rbtnLarge.DataContext = ss.Size;
-            rbtnBlackberry.DataContext = ss.Flavor;
-            rbtnCherry.DataContext = ss.Flavor;
-            rbtnPeach.DataContext = ss.Flavor;
-            rbtnGrapefruit.DataContext = ss.Flavor;
-            rbtnLemon.DataContext = ss.Flavor;
-            rbtnWatermelon.DataContext = ss.Flavor;
         }
     }
 }

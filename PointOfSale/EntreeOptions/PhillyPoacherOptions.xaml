@@ -18,8 +18,8 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <TextBlock FontSize="30" TextAlignment="Center">Philly Poacher Options</TextBlock>
-        <CheckBox Name="chkbxSirloin" Grid.Row="1" FontSize="25">Sirloin</CheckBox>
-        <CheckBox Name="chkbxOnion" Grid.Row="2" FontSize="25">Onion</CheckBox>
-        <CheckBox Name="chkbxRoll" Grid.Row="3" FontSize="25">Roll</CheckBox>
+        <CheckBox IsChecked ="{Binding Path=Sirloin}" Name="chkbxSirloin" Grid.Row="1" FontSize="25">Sirloin</CheckBox>
+        <CheckBox IsChecked ="{Binding Path=Onion}" Name="chkbxOnion" Grid.Row="2" FontSize="25">Onion</CheckBox>
+        <CheckBox IsChecked ="{Binding Path=Roll}" Name="chkbxRoll" Grid.Row="3" FontSize="25">Roll</CheckBox>
     </Grid>
 </UserControl>

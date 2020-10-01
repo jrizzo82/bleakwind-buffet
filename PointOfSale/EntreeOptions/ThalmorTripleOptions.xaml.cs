@@ -33,16 +33,6 @@ namespace PointOfSale.EntreeOptions
             InitializeComponent();
             ThalmorTriple tt = new ThalmorTriple();
             DataContext = tt;
-            chkbxBacon.DataContext = tt.Bacon;
-            chkbxBun.DataContext = tt.Bun;
-            chkbxKetchup.DataContext = tt.Ketchup;
-            chkbxMustard.DataContext = tt.Mustard;
-            chkbxMayo.DataContext = tt.Mayo;
-            chkbxTomato.DataContext = tt.Tomato;
-            chkbxPickle.DataContext = tt.Pickle;
-            chkbxLettuce.DataContext = tt.Lettuce;
-            chkbxEgg.DataContext = tt.Egg;
-            chkbxCheese.DataContext = tt.Cheese;
         }
     }
 }

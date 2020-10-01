@@ -33,11 +33,6 @@ namespace PointOfSale.DrinkOptions
             InitializeComponent();
             WarriorWater ww = new WarriorWater();
             DataContext = ww;
-            chkbxIce.DataContext = ww.Ice;
-            chkbxLemon.DataContext = ww.Lemon;
-            rbtnSmall.DataContext = ww.Size;
-            rbtnMedium.DataContext = ww.Size;
-            rbtnLarge.DataContext = ww.Size;
-        }
+           }
     }
 }

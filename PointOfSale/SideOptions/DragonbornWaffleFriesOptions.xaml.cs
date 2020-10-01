@@ -33,9 +33,6 @@ namespace PointOfSale.SideOptions
             InitializeComponent();
             DragonbornWaffleFries dw = new DragonbornWaffleFries();
             DataContext = dw;
-            rbtnSmall.DataContext = dw.Size;
-            rbtnMedium.DataContext = dw.Size;
-            rbtnLarge.DataContext = dw.Size;
         }
     }
 }

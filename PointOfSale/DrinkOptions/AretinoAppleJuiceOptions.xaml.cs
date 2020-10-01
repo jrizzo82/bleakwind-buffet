@@ -33,10 +33,6 @@ namespace PointOfSale.DrinkOptions
             InitializeComponent();
             AretinoAppleJuice aj = new AretinoAppleJuice();
             DataContext = aj;
-            chkbxIce.DataContext = aj.Ice;
-            rbtnSmall.DataContext = aj.Size;
-            rbtnMedium.DataContext = aj.Size;
-            rbtnLarge.DataContext = aj.Size;
         }
     }
 }

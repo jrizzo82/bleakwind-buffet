@@ -33,14 +33,6 @@ namespace PointOfSale.EntreeOptions
             InitializeComponent();
             DoubleDraugr dd = new DoubleDraugr();
             DataContext = dd;
-            chkbxBun.DataContext = dd.Bun;
-            chkbxKetchup.DataContext = dd.Ketchup;
-            chkbxCheese.DataContext = dd.Cheese;
-            chkbxLettuce.DataContext = dd.Lettuce;
-            chkbxMustard.DataContext = dd.Mustard;
-            chkbxMayo.DataContext = dd.Mayo;
-            chkbxTomato.DataContext = dd.Tomato;
-            chkbxPickle.DataContext = dd.Pickle;
         }
     }
 }

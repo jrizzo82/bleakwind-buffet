@@ -33,9 +33,6 @@ namespace PointOfSale.SideOptions
             InitializeComponent();
             FriedMiraak fm = new FriedMiraak();
             DataContext = fm;
-            rbtnSmall.DataContext = fm.Size;
-            rbtnMedium.DataContext = fm.Size;
-            rbtnLarge.DataContext = fm.Size;
         }
     }
 }

@@ -33,10 +33,6 @@ namespace PointOfSale.DrinkOptions
             InitializeComponent();
             MarkarthMilk mm = new MarkarthMilk();
             DataContext = mm;
-            chkbxIce.DataContext = mm.Ice;
-            rbtnSmall.DataContext = mm.Size;
-            rbtnMedium.DataContext = mm.Size;
-            rbtnLarge.DataContext = mm.Size;
         }
     }
 }
