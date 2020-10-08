@@ -7,13 +7,15 @@ using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
+
 
 namespace BleakwindBuffet.Data.Sides
 {
     /// <summary>
     /// Class for sides
     /// </summary>
-    public abstract class Side
+    public abstract class Side : IOrderItem
     {
         /// <summary>
         /// Size of each side
@@ -38,5 +40,23 @@ namespace BleakwindBuffet.Data.Sides
         /// </summary>
         /// <value>list of instructions</value>
         public abstract List<string> SpecialInstructions { get; }
+
+        /// <summary>
+        /// The name of the item
+        /// </summary>
+        public string Name
+        {
+            get
+            {
+                return ToString();
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(PropertyChangedEventArgs e)
+        {
+            PropertyChanged?.Invoke(this, e);
+        }
     }
 }

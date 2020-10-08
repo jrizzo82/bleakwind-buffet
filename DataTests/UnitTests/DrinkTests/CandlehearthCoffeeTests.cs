@@ -208,6 +208,15 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         }
 
         [Fact]
+        public void ShouldNotifyNameChange()
+        {
+            CandlehearthCoffee ch = new CandlehearthCoffee();
+            Assert.PropertyChanged(ch, "Name", () => ch.Size = Size.Medium);
+            Assert.PropertyChanged(ch, "Name", () => ch.Decaf = true);
+            Assert.PropertyChanged(ch, "Name", () => ch.Decaf = false);
+        }
+
+        [Fact]
         public void ShouldNotifySpecialInstructionsChange()
         {
             CandlehearthCoffee ch = new CandlehearthCoffee();

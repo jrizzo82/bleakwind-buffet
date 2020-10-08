@@ -150,6 +150,14 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         }
 
         [Fact]
+        public void ShouldNotifyNameChange()
+        {
+            MarkarthMilk mm = new MarkarthMilk();
+            Assert.PropertyChanged(mm, "Name", () => mm.Size = Size.Medium);
+            Assert.PropertyChanged(mm, "Name", () => mm.Size = Size.Large);
+        }
+
+        [Fact]
         public void ShouldNotifySpecialInstructionsChange()
         {
             MarkarthMilk mm = new MarkarthMilk();

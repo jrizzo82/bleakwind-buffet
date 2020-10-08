@@ -6,6 +6,7 @@
 using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Drinks
@@ -13,7 +14,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// Class for drinks
     /// </summary>
-    public abstract class Drink
+    public abstract class Drink : IOrderItem
     {
         /// <summary>
         /// Size of the drink
@@ -38,5 +39,23 @@ namespace BleakwindBuffet.Data.Drinks
         /// </summary>
         /// <value>list of instructions</value>
         public abstract List<string> SpecialInstructions { get; }
+
+        /// <summary>
+        /// The name of the item
+        /// </summary>
+        public string Name
+        {
+            get
+            {
+                return ToString();
+            }
+        }   
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(PropertyChangedEventArgs e)
+        {
+            PropertyChanged?.Invoke(this, e);
+        }
     }
 }

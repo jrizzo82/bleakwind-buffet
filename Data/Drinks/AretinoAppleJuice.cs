@@ -73,8 +73,8 @@ namespace BleakwindBuffet.Data.Drinks
                 if (this.ice != value)
                 {
                     this.ice = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                    OnPropertyChanged(new PropertyChangedEventArgs("Ice"));
+                    OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
                 }
             }
         }
@@ -93,9 +93,10 @@ namespace BleakwindBuffet.Data.Drinks
                 if (this.size != value)
                 {
                     this.size = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                    OnPropertyChanged(new PropertyChangedEventArgs("Size"));
+                    OnPropertyChanged(new PropertyChangedEventArgs("Price"));
+                    OnPropertyChanged(new PropertyChangedEventArgs("Calories"));
+                    OnPropertyChanged(new PropertyChangedEventArgs("Name"));
                 }
             }
         }
@@ -114,11 +115,6 @@ namespace BleakwindBuffet.Data.Drinks
                 return sInst;
             }
         }
-
-        /// <summary>
-        /// Event handler for when a property is changed.
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// The name of the drink.

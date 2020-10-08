@@ -118,6 +118,14 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         }
 
         [Fact]
+        public void ShouldNotifyNameChange()
+        {
+            MadOtarGrits mo = new MadOtarGrits();
+            Assert.PropertyChanged(mo, "Name", () => mo.Size = Size.Medium);
+            Assert.PropertyChanged(mo, "Name", () => mo.Size = Size.Large);
+        }
+
+        [Fact]
         public void ShouldBeAssignableToINotifyPropertyChanged()
         {
             MadOtarGrits mo = new MadOtarGrits();

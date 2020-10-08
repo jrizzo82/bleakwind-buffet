@@ -118,6 +118,14 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         }
 
         [Fact]
+        public void ShouldNotifyNameChange()
+        {
+            DragonbornWaffleFries dw = new DragonbornWaffleFries();
+            Assert.PropertyChanged(dw, "Name", () => dw.Size = Size.Medium);
+            Assert.PropertyChanged(dw, "Name", () => dw.Size = Size.Large);
+        }
+
+        [Fact]
         public void ShouldBeAssignableToINotifyPropertyChanged()
         {
             DragonbornWaffleFries dw = new DragonbornWaffleFries();

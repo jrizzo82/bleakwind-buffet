@@ -16,16 +16,11 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// Class for Warrior Water drink.
     /// </summary>
-    public class WarriorWater : Drink, IOrderItem, INotifyPropertyChanged
+    public class WarriorWater : Drink, IOrderItem
     {
         private bool ice = true;
         private Size size = Size.Small;
         private bool lemon = false;
-
-        /// <summary>
-        /// Event handler for when a property is changed.
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// The drink's price.
@@ -63,8 +58,8 @@ namespace BleakwindBuffet.Data.Drinks
                 if (this.ice != value)
                 {
                     this.ice = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                    OnPropertyChanged(new PropertyChangedEventArgs("Ice"));
+                    OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
                 }
             }
         }
@@ -83,8 +78,8 @@ namespace BleakwindBuffet.Data.Drinks
                 if (this.lemon != value)
                 {
                     this.lemon = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lemon"));
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                    OnPropertyChanged(new PropertyChangedEventArgs("Lemon"));
+                    OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
                 }
             }
         }
@@ -103,7 +98,8 @@ namespace BleakwindBuffet.Data.Drinks
                 if (this.size != value)
                 {
                     this.size = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                    OnPropertyChanged(new PropertyChangedEventArgs("Size"));
+                    OnPropertyChanged(new PropertyChangedEventArgs("Name"));
                 }
             }
         }

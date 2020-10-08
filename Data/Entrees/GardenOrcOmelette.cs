@@ -14,17 +14,12 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// Class for Garden Orc Omelette entree.
     /// </summary>
-    public class GardenOrcOmelette : Entree, IOrderItem, INotifyPropertyChanged
+    public class GardenOrcOmelette : Entree, IOrderItem
     {
         private bool broccoli = true;
         private bool mushrooms = true;
         private bool tomato = true;
         private bool cheddar = true;
-
-        /// <summary>
-        /// Event handler for when a property is changed.
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// The entree price.
@@ -62,8 +57,8 @@ namespace BleakwindBuffet.Data.Entrees
                 if (this.broccoli != value)
                 {
                     this.broccoli = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Broccoli"));
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                    OnPropertyChanged(new PropertyChangedEventArgs("Broccoli"));
+                    OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
                 }
             }
         }
@@ -82,8 +77,8 @@ namespace BleakwindBuffet.Data.Entrees
                 if (this.mushrooms != value)
                 {
                     this.mushrooms = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mushrooms"));
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                    OnPropertyChanged(new PropertyChangedEventArgs("Mushrooms"));
+                    OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
                 }
             }
         }
@@ -102,8 +97,8 @@ namespace BleakwindBuffet.Data.Entrees
                 if (this.tomato != value)
                 {
                     this.tomato = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tomato"));
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                    OnPropertyChanged(new PropertyChangedEventArgs("Tomato"));
+                    OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
                 }
             }
         }
@@ -122,8 +117,8 @@ namespace BleakwindBuffet.Data.Entrees
                 if (this.cheddar != value)
                 {
                     this.cheddar = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheddar"));
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                    OnPropertyChanged(new PropertyChangedEventArgs("Cheddar"));
+                    OnPropertyChanged(new PropertyChangedEventArgs("SpecialInstructions"));
                 }
             }
         }

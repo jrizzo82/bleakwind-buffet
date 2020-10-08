@@ -8,8 +8,9 @@
              d:DesignHeight="700" d:DesignWidth="1000">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1.75*"/>
             <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
@@ -17,7 +18,7 @@
             <RowDefinition Height="3*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Border>
+        <Border Grid.ColumnSpan="2">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -55,18 +56,52 @@
                 <Button Click="WarriorWaterClick" Grid.Row="5" Grid.Column="2" Content="Warrior Water" DockPanel.Dock="Top" Margin="10"/>
             </Grid>
         </Border>
-        <Border Name="menuBorder" Grid.Column="1" Grid.ColumnSpan="2"></Border>
-        <Button Click="btnAddClk" Name="btnAdd" FontSize="25" Grid.Row="1" Margin="100,20">Add To Order!</Button>
-        <DockPanel Grid.Column="3">
+        <Border DataContext="{Binding Path=IsSelected}" Name="menuBorder" Grid.Column="2" Grid.ColumnSpan="2"></Border>
+        <Button Click="btnAddClk" Name="btnAdd" FontSize="25" Grid.Row="1" Margin="10,20">Add To Order!</Button>
+        <Button Grid.Column="1"  Click="RemoveClk" Name="btnRemove" FontSize="25" Grid.Row="1" Margin="10,20">Remove Item</Button>
+        <DockPanel Grid.Column="4">
             <TextBlock DockPanel.Dock="Top" FontSize="30" TextAlignment="Center" >Your Order:</TextBlock>
-            <ListView DockPanel.Dock="Top" Name="menuListView"/>
+            <TextBlock DockPanel.Dock="Top" FontSize="30" TextAlignment="Center" Text="{Binding Path=Number}"/>
+            <ListBox DockPanel.Dock="Top" Name="menuListView" ItemsSource="{Binding}" IsSynchronizedWithCurrentItem="True">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="10*"/>
+                                <ColumnDefinition Width="0.5*"/>
+                                <ColumnDefinition Width="0.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="{Binding Path=Name}"/>
+                            <TextBlock Grid.Column="1" Text="        $" TextAlignment="Left"/>
+                            <TextBlock Grid.Column="2" TextAlignment="Right" Text="{Binding Path=Price}"/>
+                            <ListView Grid.Row="1" ItemsSource="{Binding Path=SpecialInstructions}"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </DockPanel>
-        <Button Grid.Column="1" Click="CancelClick" Grid.Row="1" Content="Cancel Order" Margin="10,20" FontSize="30"/>
-        <Button Grid.Column="2" Grid.Row="1" Content="Check Out" Margin="10,20" FontSize="30"/>
-        <StackPanel Grid.Row="1" Grid.Column="3">
-            <TextBlock FontSize="20" Text="Subtotal = "/>
-            <TextBlock FontSize="20" Text="Tax = "/>
-            <TextBlock FontSize="20" Text="Total = "/>
-        </StackPanel>
+        <Button Grid.Column="2" Click="CancelClick" Grid.Row="1" Content="Cancel Order" Margin="10,20" FontSize="30"/>
+        <Button Grid.Column="3" Click="CheckOutClick" Grid.Row="1" Content="Check Out" Margin="10,20" FontSize="30"/>
+        <Grid Grid.Row="1" Grid.Column="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock FontSize="20" Text="Subtotal = $" TextAlignment="Right"/>
+            <TextBlock Grid.Row="1" FontSize="20" TextAlignment="Right" Text="Tax = $"/>
+            <TextBlock Grid.Row="2" FontSize="20" Text="Total = $" TextAlignment="Right"/>
+            <TextBlock Grid.Column="1" FontSize="20" Text="{Binding Path=Subtotal}"/>
+            <TextBlock Grid.Column="1" Grid.Row="1" FontSize="20" Text="{Binding Path=Tax}"/>
+            <TextBlock Grid.Column="1" Grid.Row="2" FontSize="20" Text="{Binding Path=Total}"/>
+        </Grid>
     </Grid>
 </UserControl>
