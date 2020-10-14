@@ -14,6 +14,8 @@ using PointOfSale.SideOptions;
 using BleakwindBuffet.Data;
 using System.Printing;
 using BleakwindBuffet.Data.Sides;
+using RoundRegister;
+using System;
 
 namespace PointOfSale
 {
@@ -25,6 +27,13 @@ namespace PointOfSale
         private Order order;
 
         private uint nextOrderNumber = 1;
+
+        private Combo combo;
+
+        private ComboOptions comOp;
+
+        private bool choosingCombo = false;
+
 
         /// <summary>
         /// Constructor for OrderMenu
@@ -142,6 +151,14 @@ namespace PointOfSale
                 vo.DataContext = menuListView.SelectedItem;
                 menuBorder.Child = vo;
             }
+            else if (menuListView.SelectedItem is Combo com)
+            {
+                comOp = new ComboOptions(com);
+                combo = com;
+                //comOp.DataContext = com;
+                menuBorder.Child = comOp;
+                choosingCombo = true;
+            }
             else
                 menuBorder.Child = null;
         }
@@ -153,7 +170,16 @@ namespace PointOfSale
         /// <param name="e"></param>
         void PhillyPoacherClick(object sender, RoutedEventArgs e)
         {
-            menuBorder.Child = new PhillyPoacherOptions();
+            if (choosingCombo)
+            {
+                PhillyPoacherOptions po = new PhillyPoacherOptions();
+                PhillyPoacher pp = new PhillyPoacher();
+                po.DataContext = pp;
+                comOp.SetOptionScreen(po);
+                combo.Entree = pp;
+            }
+            else
+                menuBorder.Child = new PhillyPoacherOptions();
         }
 
         /// <summary>
@@ -163,7 +189,16 @@ namespace PointOfSale
         /// <param name="e"></param>
         void SmokehouseSkeletonClick(object sender, RoutedEventArgs e)
         {
-            menuBorder.Child = new SmokehouseSkeletonOptions();
+            if (choosingCombo)
+            {
+                SmokehouseSkeletonOptions so = new SmokehouseSkeletonOptions();
+                SmokehouseSkeleton ss = new SmokehouseSkeleton();
+                so.DataContext = ss;
+                comOp.SetOptionScreen(so);
+                combo.Entree = ss;
+            }
+            else
+                menuBorder.Child = new SmokehouseSkeletonOptions();
         }
 
         /// <summary>
@@ -173,7 +208,16 @@ namespace PointOfSale
         /// <param name="e"></param>
         void ThalmorTripleClick(object sender, RoutedEventArgs e)
         {
-            menuBorder.Child = new ThalmorTripleOptions();
+            if (choosingCombo)
+            {
+                ThalmorTripleOptions to = new ThalmorTripleOptions();
+                ThalmorTriple tt = new ThalmorTriple();
+                to.DataContext = tt;
+                comOp.SetOptionScreen(to);
+                combo.Entree = tt;
+            }
+            else
+                menuBorder.Child = new ThalmorTripleOptions();
         }
 
         /// <summary>
@@ -183,7 +227,16 @@ namespace PointOfSale
         /// <param name="e"></param>
         void GardenOrcClick(object sender, RoutedEventArgs e)
         {
-            menuBorder.Child = new GardenOrcOmeletteOptions();
+            if (choosingCombo)
+            {
+                GardenOrcOmeletteOptions go = new GardenOrcOmeletteOptions();
+                GardenOrcOmelette gardenOrc = new GardenOrcOmelette();
+                go.DataContext = gardenOrc;
+                comOp.SetOptionScreen(go);
+                combo.Entree = gardenOrc;
+            }
+            else
+                menuBorder.Child = new GardenOrcOmeletteOptions();
         }
 
         /// <summary>
@@ -193,7 +246,16 @@ namespace PointOfSale
         /// <param name="e"></param>
         void DoubleDraugrClick(object sender, RoutedEventArgs e)
         {
-            menuBorder.Child = new DoubleDraugrOptions();
+            if (choosingCombo)
+            {
+                DoubleDraugrOptions ddo = new DoubleDraugrOptions();
+                DoubleDraugr dd = new DoubleDraugr();
+                ddo.DataContext = dd;
+                comOp.SetOptionScreen(ddo);
+                combo.Entree = dd;
+            }
+            else
+                menuBorder.Child = new DoubleDraugrOptions();
         }
 
         /// <summary>
@@ -203,7 +265,16 @@ namespace PointOfSale
         /// <param name="e"></param>
         void BriarHeartBurgerClick(object sender, RoutedEventArgs e)
         {
-            menuBorder.Child = new BriarheartBurgerOptions();
+            if (choosingCombo)
+            {
+                BriarheartBurgerOptions bo = new BriarheartBurgerOptions();
+                BriarheartBurger bb = new BriarheartBurger();
+                bo.DataContext = bb;
+                comOp.SetOptionScreen(bo);
+                combo.Entree = bb;
+            }
+            else
+                menuBorder.Child = new BriarheartBurgerOptions();
         }
 
         /// <summary>
@@ -213,7 +284,16 @@ namespace PointOfSale
         /// <param name="e"></param>
         void VokunSaladClick(object sender, RoutedEventArgs e)
         {
-            menuBorder.Child = new VokunSaladOptions();
+            if (choosingCombo)
+            {
+                VokunSaladOptions vo = new VokunSaladOptions();
+                VokunSalad vs = new VokunSalad();
+                vo.DataContext = vs;
+                comOp.SetOptionScreen(vo);
+                combo.Side = vs;
+            }
+            else
+                menuBorder.Child = new VokunSaladOptions();
         }
 
         /// <summary>
@@ -223,7 +303,16 @@ namespace PointOfSale
         /// <param name="e"></param>
         void MadOtarGritsClick(object sender, RoutedEventArgs e)
         {
-            menuBorder.Child = new MadOtarGritsOptions();
+            if (choosingCombo)
+            {
+                MadOtarGritsOptions mo = new MadOtarGritsOptions();
+                MadOtarGrits mg = new MadOtarGrits();
+                mo.DataContext = mg;
+                comOp.SetOptionScreen(mo);
+                combo.Side = mg;
+            }
+            else
+                menuBorder.Child = new MadOtarGritsOptions();
         }
 
         /// <summary>
@@ -233,7 +322,16 @@ namespace PointOfSale
         /// <param name="e"></param>
         void FriedMiraakClick(object sender, RoutedEventArgs e)
         {
-            menuBorder.Child = new FriedMiraakOptions();
+            if (choosingCombo)
+            {
+                FriedMiraakOptions fo = new FriedMiraakOptions();
+                FriedMiraak fm = new FriedMiraak();
+                fo.DataContext = fm;
+                comOp.SetOptionScreen(fo);
+                combo.Side = fm;
+            }
+            else
+                menuBorder.Child = new FriedMiraakOptions();
         }
 
         /// <summary>
@@ -243,7 +341,16 @@ namespace PointOfSale
         /// <param name="e"></param>
         void DragonbornClick(object sender, RoutedEventArgs e)
         {
-            menuBorder.Child = new DragonbornWaffleFriesOptions();
+            if (choosingCombo)
+            {
+                DragonbornWaffleFriesOptions dwo = new DragonbornWaffleFriesOptions();
+                DragonbornWaffleFries dw = new DragonbornWaffleFries();
+                dwo.DataContext = dw;
+                comOp.SetOptionScreen(dwo);
+                combo.Side = dw;
+            }
+            else
+                menuBorder.Child = new DragonbornWaffleFriesOptions();
         }
 
         /// <summary>
@@ -253,7 +360,16 @@ namespace PointOfSale
         /// <param name="e"></param>
         void ThugsTBoneClick(object sender, RoutedEventArgs e)
         {
-            menuBorder.Child = new ThugsTBoneOptions();
+            if (choosingCombo)
+            {
+                ThugsTBoneOptions tto = new ThugsTBoneOptions();
+                ThugsTBone tt = new ThugsTBone();
+                tto.DataContext = tt;
+                comOp.SetOptionScreen(tto);
+                combo.Entree = tt;
+            }
+            else
+                menuBorder.Child = new ThugsTBoneOptions();
         }
 
         /// <summary>
@@ -263,7 +379,16 @@ namespace PointOfSale
         /// <param name="e"></param>
         void AretinoAppleJuiceClick(object sender, RoutedEventArgs e)
         {
-            menuBorder.Child = new AretinoAppleJuiceOptions();
+            if (choosingCombo)
+            {
+                AretinoAppleJuiceOptions ao = new AretinoAppleJuiceOptions();
+                AretinoAppleJuice aj = new AretinoAppleJuice();
+                ao.DataContext = aj;
+                comOp.SetOptionScreen(ao);
+                combo.Drink = aj;
+            }
+            else
+                menuBorder.Child = new AretinoAppleJuiceOptions();
         }
 
         /// <summary>
@@ -273,7 +398,16 @@ namespace PointOfSale
         /// <param name="e"></param>
         void CandlehearthCoffeeClick(object sender, RoutedEventArgs e)
         {
-            menuBorder.Child = new CandlehearthCoffeeOptions();
+            if (choosingCombo)
+            {
+                CandlehearthCoffeeOptions co = new CandlehearthCoffeeOptions();
+                CandlehearthCoffee cc = new CandlehearthCoffee();
+                co.DataContext = cc;
+                comOp.SetOptionScreen(co);
+                combo.Drink = cc;
+            }
+            else
+                menuBorder.Child = new CandlehearthCoffeeOptions();
         }
 
         /// <summary>
@@ -283,7 +417,16 @@ namespace PointOfSale
         /// <param name="e"></param>
         void MarkarthMilkClick(object sender, RoutedEventArgs e)
         {
-            menuBorder.Child = new MarkarthMilkOptions();
+            if (choosingCombo)
+            {
+                MarkarthMilkOptions mo = new MarkarthMilkOptions();
+                MarkarthMilk mm = new MarkarthMilk();
+                mo.DataContext = mm;
+                comOp.SetOptionScreen(mo);
+                combo.Drink = mm;
+            }
+            else
+                menuBorder.Child = new MarkarthMilkOptions();
         }
 
         /// <summary>
@@ -293,7 +436,16 @@ namespace PointOfSale
         /// <param name="e"></param>
         void SailorSodaClick(object sender, RoutedEventArgs e)
         {
-            menuBorder.Child = new SailorSoadOptions();
+            if (choosingCombo)
+            {
+                SailorSoadOptions so = new SailorSoadOptions();
+                SailorSoda ss = new SailorSoda();
+                so.DataContext = ss;
+                comOp.SetOptionScreen(so);
+                combo.Drink = ss;
+            }
+            else
+                menuBorder.Child = new SailorSoadOptions();
         }
 
         /// <summary>
@@ -303,7 +455,16 @@ namespace PointOfSale
         /// <param name="e"></param>
         void WarriorWaterClick(object sender, RoutedEventArgs e)
         {
-            menuBorder.Child = new WarriorWaterOptions();
+            if (choosingCombo)
+            {
+                WarriorWaterOptions wo = new WarriorWaterOptions();
+                WarriorWater ww = new WarriorWater();
+                wo.DataContext = ww;
+                comOp.SetOptionScreen(wo);
+                combo.Drink = ww;
+            }
+            else
+                menuBorder.Child = new WarriorWaterOptions();
         }
 
         /// <summary>
@@ -319,6 +480,9 @@ namespace PointOfSale
                     order.Add(io);                
             }
             menuBorder.Child = null;
+            choosingCombo = false;
+            btnCancelCombo.IsEnabled = false;
+            combo = new Combo();
         }
 
         /// <summary>
@@ -357,7 +521,24 @@ namespace PointOfSale
         {
             int i = menuListView.Items.IndexOf(menuListView.SelectedItem);
             if (i >= 0)
-                order.Remove(order[i]);
+                order.Remove(order[i]);            
+        }
+
+        void AddComboClk(object sender, RoutedEventArgs e)
+        {
+            combo = new Combo();
+            comOp = new ComboOptions(combo);
+            menuBorder.Child = comOp;
+            choosingCombo = true;
+            btnCancelCombo.IsEnabled = true;
+        }
+
+        void CancelComboClick(object sender, RoutedEventArgs e)
+        {
+            combo = new Combo();
+            menuBorder.Child = null;
+            choosingCombo = false;
+            btnCancelCombo.IsEnabled = false;
         }
     }
 }

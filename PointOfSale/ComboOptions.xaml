@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="PointOfSale.ComboOptions"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.ColumnSpan="3" Grid.Row="0" Text="Choose Your Items" FontSize="40" VerticalAlignment="Center"
+                   HorizontalAlignment="Center"/>
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock FontSize="15" Name="nextItem" Text="Entree:" Margin="10,2"/>
+            <TextBlock Grid.Column="1" Grid.Row="0" FontSize="15" Text="{Binding Path=EntreeName}" Margin="10,2"/>
+            <TextBlock Grid.Row="1"  FontSize="15" Text="Side:" Margin="10,2"/>
+            <TextBlock Grid.Column="1" Grid.Row="1" FontSize="15" Text="{Binding Path=SideName}" Margin="10,2"/>     
+            <TextBlock Grid.Row="2" FontSize="15" Text="Drink:" Margin="10,2"/>
+            <TextBlock Grid.Column="1" Grid.Row="2" FontSize="15" Text="{Binding Path=DrinkName}" Margin="10,2"/>
+        </Grid>
+        <Border Grid.ColumnSpan="3" Grid.Row="1" Name ="optBorder"/>
+    </Grid>
+</UserControl>

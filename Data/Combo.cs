@@ -36,7 +36,8 @@ namespace BleakwindBuffet.Data
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Drink"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));                
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("DrinkName"));
             }
         }
 
@@ -55,6 +56,7 @@ namespace BleakwindBuffet.Data
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SideName"));
             }
         }
 
@@ -73,6 +75,7 @@ namespace BleakwindBuffet.Data
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("EntreeName"));
             }
         }
 
@@ -88,7 +91,7 @@ namespace BleakwindBuffet.Data
                 price += drink.Price;
                 price += side.Price;                
                 price += entree.Price;
-                return price - 1.0;
+                return Math.Round(price - 1.0, 2);
             }
         }
 
@@ -143,8 +146,46 @@ namespace BleakwindBuffet.Data
             }
         }
 
+        /// <summary>
+        /// Generic label for a combo
+        /// </summary>
+        public string Name
+        {
+            get => "Combo";
+        }
+
+        /// <summary>
+        /// The name of the combo's entree
+        /// </summary>
+        public string EntreeName
+        {
+            get => Entree.Name;
+        }
+
+        /// <summary>
+        /// The name of the combo's side
+        /// </summary>
+        public string SideName
+        {
+            get => Side.Name;
+        }
+
+        /// <summary>
+        /// The name of the combo's drink
+        /// </summary>
+        public string DrinkName
+        {
+            get => Drink.Name;
+        }
+
+        /// <summary>
+        /// Property changed event handler for combo
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// Constructor for Combo
+        /// </summary>
         public Combo()
         {
             drink.PropertyChanged += Combo_PropertyChanged;
@@ -158,13 +199,19 @@ namespace BleakwindBuffet.Data
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Combo_PropertyChanged(object sender, PropertyChangedEventArgs e)
-        {
+        {            
             if (e.PropertyName == "Price")
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
             if (e.PropertyName == "Calories")
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
             if (e.PropertyName == "SpecialInstructions")
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
-        }
+            if (e.PropertyName == "Size" || e.PropertyName == "Flavor" || e.PropertyName == "Decaf")
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SideName"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("DrinkName"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }        
     }
 }
