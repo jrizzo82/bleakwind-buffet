@@ -24,7 +24,7 @@ namespace PointOfSale
     /// </summary>
     public partial class OrderMenu : UserControl
     {
-        private Order order;
+        public Order Order { get; set; }
 
         private uint nextOrderNumber = 1;
 
@@ -34,15 +34,14 @@ namespace PointOfSale
 
         private bool choosingCombo = false;
 
-
         /// <summary>
         /// Constructor for OrderMenu
         /// </summary>
         public OrderMenu()
         {
             InitializeComponent();
-            order = new Order(nextOrderNumber);
-            DataContext = order;
+            Order = new Order(nextOrderNumber);
+            DataContext = Order;
 
             menuListView.SelectionChanged += MenuListView_SelectionChanged;
         }
@@ -155,9 +154,9 @@ namespace PointOfSale
             {
                 comOp = new ComboOptions(com);
                 combo = com;
-                //comOp.DataContext = com;
                 menuBorder.Child = comOp;
                 choosingCombo = true;
+                btnEditCombo.IsEnabled = true;
             }
             else
                 menuBorder.Child = null;
@@ -476,8 +475,8 @@ namespace PointOfSale
         {
            if (menuBorder.Child is UserControl uc)
             {
-                if (uc.DataContext is IOrderItem io && !order.Contains(io))
-                    order.Add(io);                
+                if (uc.DataContext is IOrderItem io && !Order.Contains(io))
+                    Order.Add(io);                
             }
             menuBorder.Child = null;
             choosingCombo = false;
@@ -492,9 +491,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         void CancelClick(object sender, RoutedEventArgs e)
         {
-            order = new Order(nextOrderNumber);
+            Order = new Order(nextOrderNumber);
             menuBorder.Child = null;
-            DataContext = order;
+            DataContext = Order;
+            DisOrEnableButtons(true);
         }
 
         /// <summary>
@@ -504,12 +504,21 @@ namespace PointOfSale
         /// <param name="e"></param>
         void CheckOutClick(object sender, RoutedEventArgs e)
         {
-            if (order.Count > 0)
+            if (Order.Count > 0)
             {
-                order = new Order(++nextOrderNumber);
-                menuBorder.Child = null;
-                DataContext = order;
+                //order = new Order(++nextOrderNumber);
+                menuBorder.Child = new PaymentOptions();
+                //DataContext = order;
+                DisOrEnableButtons(false);
             }
+        }
+
+        public void NewOrder()
+        {
+            Order = new Order(++nextOrderNumber);
+            DataContext = Order;
+            DisOrEnableButtons(true);
+            menuBorder.Child = null;
         }
 
         /// <summary>
@@ -521,7 +530,7 @@ namespace PointOfSale
         {
             int i = menuListView.Items.IndexOf(menuListView.SelectedItem);
             if (i >= 0)
-                order.Remove(order[i]);            
+                Order.Remove(Order[i]);            
         }
 
         void AddComboClk(object sender, RoutedEventArgs e)
@@ -539,6 +548,39 @@ namespace PointOfSale
             menuBorder.Child = null;
             choosingCombo = false;
             btnCancelCombo.IsEnabled = false;
+        }
+
+        void DoneEditingComboClick(object sender, RoutedEventArgs e)
+        {
+            combo = new Combo();
+            menuBorder.Child = null;
+            choosingCombo = false;
+            btnEditCombo.IsEnabled = false;
+            menuListView.SelectedItem = null;
+        }
+
+        public void DisOrEnableButtons(bool disOrEn)
+        {
+            btnAdd.IsEnabled = disOrEn;
+            btnRemove.IsEnabled = disOrEn;
+            btnBriarHeart.IsEnabled = disOrEn;
+            btnFried.IsEnabled = disOrEn;
+            btnCandlehearth.IsEnabled = disOrEn;
+            btnDouble.IsEnabled = disOrEn;
+            btnThalmor.IsEnabled = disOrEn;
+            btnThugs.IsEnabled = disOrEn;
+            btnPhilly.IsEnabled = disOrEn;
+            btnAretino.IsEnabled = disOrEn;
+            btnMadOtar.IsEnabled = disOrEn;
+            btnSmokehouse.IsEnabled = disOrEn;
+            btnWarrior.IsEnabled = disOrEn;
+            btnSailor.IsEnabled = disOrEn;
+            btnMarkarth.IsEnabled = disOrEn;
+            btnVokun.IsEnabled = disOrEn;
+            btnDragonborn.IsEnabled = disOrEn;
+            btnGarden.IsEnabled = disOrEn;
+            btnCheckOut.IsEnabled = disOrEn;
+            btnChooseCombo.IsEnabled = disOrEn;
         }
     }
 }

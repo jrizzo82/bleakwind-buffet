@@ -13,7 +13,7 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition/>
             <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="1.3*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="3*"/>
@@ -39,27 +39,27 @@
                 <TextBlock FontSize="30" TextAlignment="Center" >Entrees</TextBlock>
                 <TextBlock FontSize="30" TextAlignment="Center" Grid.Column="1" >Sides</TextBlock>
                 <TextBlock FontSize="30" TextAlignment="Center" Grid.Column="2" >Drinks</TextBlock>
-                <Button Click="BriarHeartBurgerClick" Grid.Row="1" Content="Briarheart Burger" DockPanel.Dock="Top" Margin="10"/>
-                <Button Click="DoubleDraugrClick" Grid.Row="2" Content="Double Draugr" DockPanel.Dock="Top" Margin="10"/>
-                <Button Click="ThalmorTripleClick" Grid.Row="3" Content="Thalmor Triple" DockPanel.Dock="Top" Margin="10" />
-                <Button Click="SmokehouseSkeletonClick" Grid.Row="4" Content="Smokehouse Skeleton" DockPanel.Dock="Top" Margin="10"/>
-                <Button Click="GardenOrcClick" Grid.Row="5" Content="Garden Orc Omelette" DockPanel.Dock="Top" Margin="10"/>
-                <Button Click="PhillyPoacherClick" Grid.Row="6" Content="Philly Poacher" DockPanel.Dock="Top" Margin="10"/>
-                <Button Click="ThugsTBoneClick" Grid.Row="7" Content="Thugs T-Bone" DockPanel.Dock="Top" Margin="10"/>
-                <Button Click="VokunSaladClick" Grid.Row="1" Grid.Column="1" Content="Vokun Salad" DockPanel.Dock="Top" Margin="10"/>
-                <Button Click="FriedMiraakClick" Grid.Row="2" Grid.Column="1" Content="Fried Mirak" DockPanel.Dock="Top" Margin="10"/>
-                <Button Click="MadOtarGritsClick" Grid.Row="3" Grid.Column="1" Content="Mad Otar Grits" DockPanel.Dock="Top" Margin="10"/>
-                <Button Click="DragonbornClick" Grid.Row="4" Grid.Column="1" Content="Dragonborn Waffle Fries" DockPanel.Dock="Top" Margin="10"/>
-                <Button Click="SailorSodaClick" Grid.Row="1" Grid.Column="2" Content="Sailor Soda" DockPanel.Dock="Top" Margin="10"/>
-                <Button Click="MarkarthMilkClick" Grid.Row="2" Grid.Column="2" Content="Markarth Milk" DockPanel.Dock="Top" Margin="10"/>
-                <Button Click="AretinoAppleJuiceClick" Grid.Row="3" Grid.Column="2" Content="Aretino Apple Juice" DockPanel.Dock="Top" Margin="10"/>
-                <Button Click="CandlehearthCoffeeClick" Grid.Row="4" Grid.Column="2" Content="Candlehearth Coffee" DockPanel.Dock="Top" Margin="10"/>
-                <Button Click="WarriorWaterClick" Grid.Row="5" Grid.Column="2" Content="Warrior Water" DockPanel.Dock="Top" Margin="10"/>
+                <Button Name="btnBriarHeart" Click="BriarHeartBurgerClick" Grid.Row="1" Content="Briarheart Burger" DockPanel.Dock="Top" Margin="10"/>
+                <Button Name="btnDouble" Click="DoubleDraugrClick" Grid.Row="2" Content="Double Draugr" DockPanel.Dock="Top" Margin="10"/>
+                <Button Name="btnThalmor" Click="ThalmorTripleClick" Grid.Row="3" Content="Thalmor Triple" DockPanel.Dock="Top" Margin="10" />
+                <Button Name="btnSmokehouse" Click="SmokehouseSkeletonClick" Grid.Row="4" Content="Smokehouse Skeleton" DockPanel.Dock="Top" Margin="10"/>
+                <Button Name="btnGarden" Click="GardenOrcClick" Grid.Row="5" Content="Garden Orc Omelette" DockPanel.Dock="Top" Margin="10"/>
+                <Button Name="btnPhilly" Click="PhillyPoacherClick" Grid.Row="6" Content="Philly Poacher" DockPanel.Dock="Top" Margin="10"/>
+                <Button Name="btnThugs" Click="ThugsTBoneClick" Grid.Row="7" Content="Thugs T-Bone" DockPanel.Dock="Top" Margin="10"/>
+                <Button Name="btnVokun" Click="VokunSaladClick" Grid.Row="1" Grid.Column="1" Content="Vokun Salad" DockPanel.Dock="Top" Margin="10"/>
+                <Button Name="btnFried" Click="FriedMiraakClick" Grid.Row="2" Grid.Column="1" Content="Fried Mirak" DockPanel.Dock="Top" Margin="10"/>
+                <Button Name="btnMadOtar" Click="MadOtarGritsClick" Grid.Row="3" Grid.Column="1" Content="Mad Otar Grits" DockPanel.Dock="Top" Margin="10"/>
+                <Button Name="btnDragonborn" Click="DragonbornClick" Grid.Row="4" Grid.Column="1" Content="Dragonborn Waffle Fries" DockPanel.Dock="Top" Margin="10"/>
+                <Button Name="btnSailor" Click="SailorSodaClick" Grid.Row="1" Grid.Column="2" Content="Sailor Soda" DockPanel.Dock="Top" Margin="10"/>
+                <Button Name="btnMarkarth" Click="MarkarthMilkClick" Grid.Row="2" Grid.Column="2" Content="Markarth Milk" DockPanel.Dock="Top" Margin="10"/>
+                <Button Name="btnAretino" Click="AretinoAppleJuiceClick" Grid.Row="3" Grid.Column="2" Content="Aretino Apple Juice" DockPanel.Dock="Top" Margin="10"/>
+                <Button Name="btnCandlehearth"  Click="CandlehearthCoffeeClick" Grid.Row="4" Grid.Column="2" Content="Candlehearth Coffee" DockPanel.Dock="Top" Margin="10"/>
+                <Button Name="btnWarrior" Click="WarriorWaterClick" Grid.Row="5" Grid.Column="2" Content="Warrior Water" DockPanel.Dock="Top" Margin="10"/>
                 <Button Click="CancelComboClick" Grid.Row="7" Grid.Column="2" Content="Cancel Combo" DockPanel.Dock="Top" Margin="10" Name="btnCancelCombo"  IsEnabled="False"/>
-
+                <Button Click="DoneEditingComboClick" Grid.Row="7" Grid.Column="1" Content="Done Editing Combo" DockPanel.Dock="Top" Margin="10" Name="btnEditCombo"  IsEnabled="False"/>
             </Grid>
         </Border>
-        <Border DataContext="{Binding Path=IsSelected}" Name="menuBorder" Grid.Column="2" Grid.ColumnSpan="2"></Border>
+        <Border DataContext="{Binding Path=IsSelected}" Name="menuBorder" Grid.Column="2" Grid.ColumnSpan="3"></Border>
         <Button Click="btnAddClk" Name="btnAdd" FontSize="25" Grid.Row="1" Margin="10,20">Add To Order!</Button>
         <Button Grid.Column="1"  Click="RemoveClk" Name="btnRemove" FontSize="25" Grid.Row="1" Margin="10,20">Remove Item</Button>
         <DockPanel Grid.Column="5">
@@ -87,9 +87,9 @@
                 </ListBox.ItemTemplate>
             </ListBox>
         </DockPanel>
-        <Button Grid.Column="3" Click="CancelClick" Grid.Row="1" Content="Cancel Order" Margin="10,20" FontSize="30"/>
-        <Button Grid.Column="4" Click="CheckOutClick" Grid.Row="1" Content="Check Out" Margin="10,20" FontSize="30"/>
-        <Button Grid.Column="2" Grid.Row="1" Click="AddComboClk" Content="Choose Combo" Margin="10,20" FontSize="30"/>
+        <Button Name="btnCancelOrder" Grid.Column="3" Click="CancelClick" Grid.Row="1" Content="Cancel Order" Margin="10,20" FontSize="30"/>
+        <Button Name="btnCheckOut" Grid.Column="4" Click="CheckOutClick" Grid.Row="1" Content="Check Out" Margin="10,20" FontSize="30"/>
+        <Button Name="btnChooseCombo" Grid.Column="2" Grid.Row="1" Click="AddComboClk" Content="Choose Combo" Margin="10,20" FontSize="30"/>
         <Grid Grid.Row="1" Grid.Column="5">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>

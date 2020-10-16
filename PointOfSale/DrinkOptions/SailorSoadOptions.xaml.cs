@@ -1,13 +1,12 @@
-﻿using BleakwindBuffet.Data.Drinks;
+﻿/*
+ * Author: Jerry Rizzo 
+ * Class Name: SailorSoadOptions.xaml.cs
+ * Purpose: Represents the option menu for SailorSoda
+ */
+using BleakwindBuffet.Data.Drinks;
 using System;
 using System.Collections.Generic;
 using System.Text;
-/*
- * Author: Jerry Rizzo 
- * Class Name: SailorSoadOptions.xaml.cs
- * Purpose: Represents the option menu for SailorSoad
- */
-
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;

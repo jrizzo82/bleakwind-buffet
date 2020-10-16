@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Author: Jerry Rizzo 
+ * Class Name: ComboOptions.xaml.cs
+ * Purpose: Represents the option menu for a Combo
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

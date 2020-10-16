@@ -212,6 +212,11 @@ namespace BleakwindBuffet.Data
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("DrinkName"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
-        }        
+        }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }
