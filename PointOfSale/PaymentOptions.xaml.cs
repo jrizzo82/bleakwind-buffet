@@ -57,14 +57,14 @@ namespace PointOfSale
                 case CardTransactionResult.Approved:
                     MessageBox.Show("Card Approved!");
                     RecieptPrinter.PrintLine("Order #" + order.Number.ToString());
-                    RecieptPrinter.PrintLine(DateTime.Now.ToString());
+                    RecieptPrinter.PrintLine(DateTime.Now.ToString() + "\n");
                     foreach (IOrderItem io in order) 
                     {
                         RecieptPrinter.PrintLine(io.ToString() + "\t" + io.Price.ToString("C", CultureInfo.CreateSpecificCulture("en-US")));
                         foreach (string str in io.SpecialInstructions)
                             RecieptPrinter.PrintLine(str);
                     }
-                    RecieptPrinter.PrintLine("Subtotal: " + order.Subtotal.ToString("C", CultureInfo.CreateSpecificCulture("en-US")));
+                    RecieptPrinter.PrintLine("\nSubtotal: " + order.Subtotal.ToString("C", CultureInfo.CreateSpecificCulture("en-US")));
                     RecieptPrinter.PrintLine("Tax: " + order.Tax.ToString("C", CultureInfo.CreateSpecificCulture("en-US")));
                     RecieptPrinter.PrintLine("Total: " + order.Total.ToString("C", CultureInfo.CreateSpecificCulture("en-US")));
                     RecieptPrinter.PrintLine("Payment Method: Card");
@@ -79,7 +79,7 @@ namespace PointOfSale
 
         private void btnCash_Click(object sender, RoutedEventArgs e)
         {
-            orderMenu.menuBorder.Child = new Drawer();
+            orderMenu.menuBorder.Child = new Drawer(orderMenu);
         }
     }
 }

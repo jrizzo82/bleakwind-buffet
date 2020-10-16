@@ -12,9 +12,9 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button BorderBrush="Black" BorderThickness="2" Background="LightBlue" Content="+" FontSize="40"/>
-        <Button BorderBrush="Black" BorderThickness="2" Background="LightBlue" HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Column="2" Content="-" FontSize="40"/>
-        <TextBox Text="0" FontSize="40" Grid.Column="1" TextAlignment="Center" BorderBrush="Black" BorderThickness="2"/>
+        <Button Click="HandleButtonClick" Name="Increment" BorderBrush="Black" BorderThickness="2" Background="LightBlue" Content="+" FontSize="40"/>
+        <Button Click="HandleButtonClick" Name="Decrement" BorderBrush="Black" BorderThickness="2" Background="LightBlue" Grid.Column="2" Content="-" FontSize="40"/>
+        <TextBox Name="Box" Text="{Binding Path=Value, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:CashCounter}}" FontSize="40" Grid.Column="1" TextAlignment="Center" BorderBrush="Black" BorderThickness="2"/>
 
     </Grid>
 </UserControl>

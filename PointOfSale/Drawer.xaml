@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid local:CashCounter.ValueChanged="CashCounter_ValueChanged">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.5*"/>
             <ColumnDefinition/>
@@ -16,6 +16,7 @@
             <ColumnDefinition Width="0.5*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition  Height="0.7*"/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
@@ -23,26 +24,26 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition  Height="0.7*"/>
+            <RowDefinition Height="0.7*"/>
         </Grid.RowDefinitions>
-        <local:CashCounter Grid.Column="1" Grid.Row="1" x:Name="Hundreds"/>
-        <local:CashCounter Grid.Column="1" Grid.Row="2"  x:Name="Fifties"/>
-        <local:CashCounter Grid.Column="1" Grid.Row="3" x:Name="Twenties"/>
-        <local:CashCounter Grid.Column="1" Grid.Row="4" x:Name="Tens"/>
-        <local:CashCounter Grid.Column="1" Grid.Row="5" x:Name="Fives"/>
-        <local:CashCounter Grid.Column="1" Grid.Row="6" x:Name="Twos"/>
-        <local:CashCounter Grid.Column="1" Grid.Row="7" x:Name="Ones"/>
-        <local:CashCounter Grid.Column="4" Grid.Row="1" x:Name="DollarCoins"/>
-        <local:CashCounter Grid.Column="4" Grid.Row="2" x:Name="FiftyCents"/>
-        <local:CashCounter Grid.Column="4" Grid.Row="3" x:Name="Quarters"/>
-        <local:CashCounter Grid.Column="4" Grid.Row="4" x:Name="Dimes"/>
-        <local:CashCounter Grid.Column="4" Grid.Row="5" x:Name="Nickels"/>
-        <local:CashCounter Grid.Column="4" Grid.Row="6" x:Name="Pennies"/>
-        <TextBlock Grid.Column="1" Text="From Customer" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <local:CashCounter Value="{Binding Path=PaidHundreds}" Grid.Column="1" Grid.Row="1" x:Name="Hundreds"/>
+        <local:CashCounter Value="{Binding Path=PaidFifties}" Grid.Column="1" Grid.Row="2"  x:Name="Fifties"/>
+        <local:CashCounter Value="{Binding Path=PaidTwenties}" Grid.Column="1" Grid.Row="3" x:Name="Twenties"/>
+        <local:CashCounter Value="{Binding Path=PaidTens}" Grid.Column="1" Grid.Row="4" x:Name="Tens"/>
+        <local:CashCounter Value="{Binding Path=PaidFives}" Grid.Column="1" Grid.Row="5" x:Name="Fives"/>
+        <local:CashCounter Value="{Binding Path=PaidTwos}" Grid.Column="1" Grid.Row="6" x:Name="Twos"/>
+        <local:CashCounter Value="{Binding Path=PaidOnes}" Grid.Column="1" Grid.Row="7" x:Name="Ones"/>
+        <local:CashCounter Value="{Binding Path=PaidDollars}" Grid.Column="4" Grid.Row="1" x:Name="DollarCoins"/>
+        <local:CashCounter Value="{Binding Path=PaidHalfDollars}" Grid.Column="4" Grid.Row="2" x:Name="FiftyCents"/>
+        <local:CashCounter Value="{Binding Path=PaidQuarters}" Grid.Column="4" Grid.Row="3" x:Name="Quarters"/>
+        <local:CashCounter Value="{Binding Path=PaidDimes}" Grid.Column="4" Grid.Row="4" x:Name="Dimes"/>
+        <local:CashCounter Value="{Binding Path=PaidNickels}" Grid.Column="4" Grid.Row="5" x:Name="Nickels"/>
+        <local:CashCounter Value="{Binding Path=PaidPennies}" Grid.Column="4" Grid.Row="6" x:Name="Pennies"/>
+        <TextBlock Grid.Column="1" Text="From Customer" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left"/>
         <TextBlock Grid.Column="2" Text="Change" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <TextBlock Grid.Column="4" Text="From Customer" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <TextBlock Grid.Column="2" Text="Change" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <TextBlock Grid.Column="4" Text="From Customer" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <TextBlock Grid.Column="5" Text="Change" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         <TextBlock Grid.Column="0" Grid.Row="1" Background="LightGreen" TextAlignment="Center" Text="$100" FontSize="20"/>
         <TextBlock Grid.Column="0" Grid.Row="2" Background="LightGreen" TextAlignment="Center" Text="$50" FontSize="20"/>
         <TextBlock Grid.Column="0" Grid.Row="3" Background="LightGreen" TextAlignment="Center" Text="$20" FontSize="20"/>
@@ -57,5 +58,25 @@
         <TextBlock Grid.Column="3" Grid.Row="5" Background="Chocolate" TextAlignment="Center" Text="$0.05" FontSize="20"/>
         <TextBlock Grid.Column="3" Grid.Row="6" Background="Chocolate" TextAlignment="Center" Text="$0.01" FontSize="20"/>
         <Button Grid.Column="5" Grid.Row="8" Content="Return to Order" Name="btnReturn" Click="btnReturn_Click"/>
+        <TextBlock Text="{Binding Path=ChangeHundreds}" Grid.Column="2" Grid.Row="1" TextAlignment="Center" FontSize="20"/>
+        <TextBlock Grid.Column="2" Grid.Row="2" TextAlignment="Center" Text="{Binding Path=ChangeFifties}" FontSize="20"/>
+        <TextBlock Grid.Column="2" Grid.Row="3" TextAlignment="Center" Text="{Binding Path=ChangeTwenties}" FontSize="20"/>
+        <TextBlock Grid.Column="2" Grid.Row="4" TextAlignment="Center" Text="{Binding Path=ChangeTens}" FontSize="20"/>
+        <TextBlock Grid.Column="2" Grid.Row="5" TextAlignment="Center" Text="{Binding Path=ChangeFives}" FontSize="20"/>
+        <TextBlock Grid.Column="2" Grid.Row="6" TextAlignment="Center" Text="{Binding Path=ChangeTwos}" FontSize="20"/>
+        <TextBlock Grid.Column="2" Grid.Row="7" TextAlignment="Center" Text="{Binding Path=ChangeOnes}" FontSize="20"/>
+        <TextBlock Grid.Column="5" Grid.Row="3" TextAlignment="Center" Text="{Binding Path=ChangeQuarters}" FontSize="20"/>
+        <TextBlock Grid.Column="5" Grid.Row="4" TextAlignment="Center" Text="{Binding Path=ChangeDimes}" FontSize="20"/>
+        <TextBlock Grid.Column="5" Grid.Row="5" TextAlignment="Center" Text="{Binding Path=ChangeNickels}" FontSize="20"/>
+        <TextBlock Grid.Column="5" Grid.Row="6" TextAlignment="Center" Text="{Binding Path=ChangePennies}" FontSize="20"/>
+        <TextBlock Grid.Column="5" Grid.Row="1" TextAlignment="Center" Text="{Binding Path=ChangeDollars}" FontSize="20"/>
+        <TextBlock Grid.Column="5" Grid.Row="2" TextAlignment="Center" Text="{Binding Path=ChangeHalfDollars}" FontSize="20"/>
+        <TextBlock Grid.Column="1" Grid.Row="8" TextAlignment="Center" Text="Amount Due: " FontSize="20"/>
+        <TextBlock Background="Red" Grid.Column="2" Grid.Row="8" TextAlignment="Center" Text="{Binding Path=AmountDueString}" FontSize="20"/>
+        <TextBlock Grid.Column="3" Grid.Row="8" TextAlignment="Center" Text="Change: " FontSize="20"/>
+        <TextBlock Grid.Column="4" Background="LightGreen"  Grid.Row="8" TextAlignment="Center" Text="{Binding Path=ChangeString}" FontSize="20"/>
+        <TextBlock Grid.Column="1" Grid.Row="9" TextAlignment="Center" Text="Amount Given: " FontSize="20"/>
+        <TextBlock Grid.Column="2" Background="Aqua"  Grid.Row="9" TextAlignment="Center" Text="{Binding Path=GivenString}" FontSize="20"/>
+        <Button Grid.Column="5" Grid.Row="7" Content="Finalize Order" Name="btnFinalize" Click="btnFinalize_Click"/>
     </Grid>
 </UserControl>
