@@ -73,10 +73,10 @@
         <TextBlock Grid.Column="5" Grid.Row="2" TextAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=ChangeHalfDollars}" FontSize="25"/>
         <TextBlock Grid.Column="1" Grid.Row="8" TextAlignment="Center" VerticalAlignment="Center" Text="Amount Due: " FontSize="20"/>
         <TextBlock Background="Red" Grid.Column="2" Grid.Row="8" TextAlignment="Center" Text="{Binding Path=AmountDueString}" FontSize="20"/>
-        <TextBlock Grid.Column="3" Grid.Row="8" TextAlignment="Center" Text="Change: " FontSize="20"/>
-        <TextBlock Grid.Column="4" Background="LightGreen" Margin="1" Grid.Row="8" TextAlignment="Center" Text="{Binding Path=ChangeString}" FontSize="20"/>
+        <TextBlock Grid.Column="3" Grid.Row="9" TextAlignment="Center" Text="Change: " FontSize="20"/>
+        <TextBlock Grid.Column="4" Background="LightGreen" Margin="1" Grid.Row="9" TextAlignment="Center" Text="{Binding Path=ChangeString}" FontSize="20"/>
         <TextBlock Grid.Column="1" Grid.Row="9" TextAlignment="Center" Text="Amount Given: " FontSize="20"/>
         <TextBlock Grid.Column="2" Background="Aqua"  Grid.Row="9" TextAlignment="Center" Text="{Binding Path=GivenString}" FontSize="20"/>
-        <Button Grid.Column="4" FontSize="20" Grid.Row="7" Content="Finalize Order!" Margin="1" Background="Azure" Name="btnFinalize" Click="btnFinalize_Click" BorderBrush="Black" BorderThickness="1"/>
+        <Button Grid.Column="4" FontSize="20" Grid.Row="7" Content="Finalize Order!" Margin="8" Background="RosyBrown" Name="btnFinalize" Grid.RowSpan="2" Click="btnFinalize_Click" BorderBrush="Black" BorderThickness="1"/>
     </Grid>
 </UserControl>

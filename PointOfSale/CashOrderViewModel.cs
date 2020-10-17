@@ -39,7 +39,6 @@ namespace PointOfSale
         private int changeFives = 0;
         private int changeTwos = 0;
         private int changeOnes = 0;
-        private int changeDollars = 0;
         private int changeHalfDollars = 0;
         private int changeQuarters = 0;
         private int changeDimes = 0;

@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Author: Jerry Rizzo 
+ * Class Name: CashCounter.xaml.cs
+ * Purpose: Represents a cash counter in the Drawer
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
