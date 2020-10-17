@@ -24,22 +24,8 @@ namespace PointOfSale
     public partial class Drawer : UserControl
     {
         private OrderMenu orderMenu;
-        //{
-        //    get
-        //    {
-        //        DependencyObject parent = this;
-        //        do
-        //        {
-        //            // Get this node's parent
-        //            parent = LogicalTreeHelper.GetParent(parent);
-        //        }
-        //        // Invariant: there is a parent element, and it is not an OrderMenu 
-        //        while (!(parent is null || parent is OrderMenu));
-        //        return parent as OrderMenu;
-        //    }
-        //}
-
-    private CashOrderViewModel cvm;
+        
+        private CashOrderViewModel cvm;
 
         /// <summary>
         /// Custructor for Drawer
@@ -96,7 +82,6 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void CashCounter_ValueChanged(object sender, RoutedEventArgs e)
         {
-            //cvm.OrderTotal = orderMenu.Order.Total;
             cvm.CalculateChange();
         }
     }

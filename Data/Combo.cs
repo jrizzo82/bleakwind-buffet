@@ -214,6 +214,10 @@ namespace BleakwindBuffet.Data
             }
         }
 
+        /// <summary>
+        /// Overrides the default ToString method
+        /// </summary>
+        /// <returns>The Combo Name "Combo"</returns>
         public override string ToString()
         {
             return Name;

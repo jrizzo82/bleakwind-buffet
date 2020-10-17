@@ -1,4 +1,9 @@
-﻿using RoundRegister;
+﻿/*
+ * Author: Jerry Rizzo 
+ * Class Name: PaymentOptions.xaml.cs
+ * Purpose: Represents an Order of menu items
+ */
+using RoundRegister;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -37,18 +42,31 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Constructor for PaymentOptions
+        /// </summary>
         public PaymentOptions()
         {
             InitializeComponent();
             btnReturn.Click += ReturnClick;
         }
 
+        /// <summary>
+        /// Handles return button click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void ReturnClick(object sender, RoutedEventArgs e)
         {
             orderMenu.DisOrEnableButtons(true);
             orderMenu.menuBorder.Child = null;
         }
 
+        /// <summary>
+        /// Handles clicking the Credit/Debit payment option
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCredDeb_Click(object sender, RoutedEventArgs e)
         {
             Order order = orderMenu.Order; 
@@ -77,6 +95,11 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Handles Clicking the Cash payment option
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCash_Click(object sender, RoutedEventArgs e)
         {
             orderMenu.menuBorder.Child = new Drawer(orderMenu);

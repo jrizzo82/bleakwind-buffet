@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Author: Jerry Rizzo 
+ * Class Name: CashOrderViewModel.cs
+ * Purpose: View Model Class for Drawer
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
@@ -9,7 +14,10 @@ using System.Windows;
 
 namespace PointOfSale
 {
-    class CashOrderViewModel : INotifyPropertyChanged
+    /// <summary>
+    /// View Model Class. Provides Logic for Drawer.
+    /// </summary>
+    public class CashOrderViewModel : INotifyPropertyChanged
     {
         private int paidHundreds = 0;
         private int paidFifties = 0;
@@ -41,10 +49,19 @@ namespace PointOfSale
         private double change = 0.0;
         private double given = 0.0;
 
+        /// <summary>
+        /// Event for when a property changes
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// Total cost of the order
+        /// </summary>
         public double OrderTotal { get; set; }
 
+        /// <summary>
+        /// The amount still due to be paid
+        /// </summary>
         public double AmountDue
         {
             get { return amountDue; }
@@ -56,11 +73,17 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// String translation in American currency format for AmountDue
+        /// </summary>
         public string AmountDueString
         {
             get => AmountDue.ToString("C", CultureInfo.CreateSpecificCulture("en-US"));
         }
 
+        /// <summary>
+        /// Amount of change due
+        /// </summary>
         public double Change
         {
             get { return change; }
@@ -72,11 +95,17 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// String translation in American currency format for Change
+        /// </summary>
         public string ChangeString
         {
             get => Change.ToString("C", CultureInfo.CreateSpecificCulture("en-US"));
         }
 
+        /// <summary>
+        /// The amount given by the customer
+        /// </summary>
         public double Given
         {
             get { return given; }
@@ -88,11 +117,17 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// String translation in American currency format for Given
+        /// </summary>
         public string GivenString
         {
             get => Given.ToString("C", CultureInfo.CreateSpecificCulture("en-US"));
         }
 
+        /// <summary>
+        /// Amount of Hundred is the CashDrawer
+        /// </summary>
         public int Hundreds
         {
             get
@@ -106,6 +141,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Amount of Fifties in the CashDrawer
+        /// </summary>
         public int Fifties
         {
             get => CashDrawer.Fifties;
@@ -116,6 +154,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Amount of Twenties in the CashDrawer
+        /// </summary>
         public int Twenties
         {
             get => CashDrawer.Twenties;
@@ -126,6 +167,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Amount of Tens in the CashDrawer
+        /// </summary>
         public int Tens
         {
             get => CashDrawer.Tens;
@@ -136,6 +180,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Amount of Fives in the CashDrawer
+        /// </summary>
         public int Fives
         {
             get => CashDrawer.Fives;
@@ -146,16 +193,21 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Amount of Twos in the CashDrawer
+        /// </summary>
         public int Twos
         {
-            get => CashDrawer.Ones;
+            get => CashDrawer.Twos;
             set
             {
-                CashDrawer.Ones = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ones"));
+                CashDrawer.Twos = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Twos"));
             }
         }
-
+        /// <summary>
+        /// Amount of Ones in the CashDrawer
+        /// </summary>
         public int Ones
         {
             get => CashDrawer.Ones;
@@ -166,6 +218,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Amount of Dollar coins in the CashDrawer
+        /// </summary>
         public int Dollars
         {
             get => CashDrawer.Dollars;
@@ -176,6 +231,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Amount of Half dollars in the CashDrawer
+        /// </summary>
         public int HalfDollars
         {
             get => CashDrawer.HalfDollars;
@@ -186,6 +244,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Amount of Quarters in the CashDrawer
+        /// </summary>
         public int Quarters
         {
             get => CashDrawer.Quarters;
@@ -196,6 +257,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Amount of Dimes in the CashDrawer
+        /// </summary>
         public int Dimes
         {
             get => CashDrawer.Dimes;
@@ -206,6 +270,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Amount of Nickels in the CashDrawer
+        /// </summary>
         public int Nickels
         {
             get => CashDrawer.Nickels;
@@ -216,6 +283,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Amount of Pennies in the CashDrawer
+        /// </summary>
         public int Pennies
         {
             get => CashDrawer.Pennies;
@@ -226,6 +296,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Amount of Hundreds that have been paid
+        /// </summary>
         public int PaidHundreds
         {
             get
@@ -239,6 +312,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Amount of Fifties that have been paid
+        /// </summary>
         public int PaidFifties
         {
             get => paidFifties;
@@ -249,6 +325,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Amount of Twenties that have been paid
+        /// </summary>
         public int PaidTwenties
         {
             get => paidTwenties;
@@ -259,6 +338,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Amount of Tens that have been paid
+        /// </summary>
         public int PaidTens
         {
             get => paidTens;
@@ -269,6 +351,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Amount of Fives that have been paid
+        /// </summary>
         public int PaidFives
         {
             get => paidFives;
@@ -279,6 +364,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Amount of Twos that have been paid
+        /// </summary>
         public int PaidTwos
         {
             get => paidTwos;
@@ -289,6 +377,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Amount of Ones that have been paid
+        /// </summary>
         public int PaidOnes
         {
             get => paidOnes;
@@ -299,6 +390,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Amount of Dollar coins that have been paid
+        /// </summary>
         public int PaidDollars
         {
             get => paidDollars;
@@ -309,6 +403,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Amount of Half dollars that have been paid
+        /// </summary>
         public int PaidHalfDollars
         {
             get => paidHalfDollars;
@@ -319,6 +416,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Amount of Quarters that have been paid
+        /// </summary>
         public int PaidQuarters
         {
             get => paidQuarters;
@@ -329,6 +429,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Amount of Dimes that have been paid
+        /// </summary>
         public int PaidDimes
         {
             get => paidDimes;
@@ -339,6 +442,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Amount of Nickels that have been paid
+        /// </summary>
         public int PaidNickels
         {
             get => paidNickels;
@@ -349,6 +455,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Amount of Pennies that have been paid
+        /// </summary>
         public int PaidPennies
         {
             get => paidPennies;
@@ -359,6 +468,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Amount of Hundreds due as change
+        /// </summary>
         public int ChangeHundreds
         {
             get
@@ -372,6 +484,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Amount of Fifties due as change
+        /// </summary>
         public int ChangeFifties
         {
             get => changeFifties;
@@ -382,6 +497,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Amount of Twenties due as change
+        /// </summary>
         public int ChangeTwenties
         {
             get => changeTwenties;
@@ -392,6 +510,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Amount of Tens due as change
+        /// </summary>
         public int ChangeTens
         {
             get => changeTens;
@@ -402,6 +523,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Amount of Fives due as change
+        /// </summary>
         public int ChangeFives
         {
             get => changeFives;
@@ -412,6 +536,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Amount of Twos due as change
+        /// </summary>
         public int ChangeTwos
         {
             get => changeTwos;
@@ -422,6 +549,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Amount of Ones due as change
+        /// </summary>
         public int ChangeOnes
         {
             get => changeOnes;
@@ -432,16 +562,9 @@ namespace PointOfSale
             }
         }
 
-        public int ChangeDollars
-        {
-            get => changeDollars;
-            set
-            {
-                changeDollars = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ChangeDollars"));
-            }
-        }
-
+        /// <summary>
+        /// Amount of Half dollars due as change
+        /// </summary>
         public int ChangeHalfDollars
         {
             get => changeHalfDollars;
@@ -452,6 +575,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Amount of Quarters due as change
+        /// </summary>
         public int ChangeQuarters
         {
             get => changeQuarters;
@@ -462,6 +588,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Amount of Dimes due as change
+        /// </summary>
         public int ChangeDimes
         {
             get => changeDimes;
@@ -472,6 +601,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Amount of Nickels due as change
+        /// </summary>
         public int ChangeNickels
         {
             get => changeNickels;
@@ -482,6 +614,9 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Amount of Pennies due as change
+        /// </summary>
         public int ChangePennies
         {
             get => changePennies;
@@ -492,17 +627,24 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Set the AmountDue as soon as 
+        /// the Drawer is visible
+        /// </summary>
         public void SetAmountDue()
         {
             AmountDue = OrderTotal;
         }
 
 
+        /// <summary>
+        /// Calculates how much change is owed
+        /// </summary>
         public void CalculateChange()
         {
             AmountDue = OrderTotal;
             Given = PaidHundreds*100.0 + PaidFifties*50.0 + PaidTwenties*20.0 + PaidTens*10.0 + PaidFives*5.0 + PaidTwos*2.0 + PaidOnes*1.0 +
-                                PaidDollars *1.0 + PaidHalfDollars*0.5 + PaidQuarters*0.25 + PaidDimes*0.1 + PaidNickels*0.05 + PaidPennies*0.01;
+                                PaidDollars*1.0 + PaidHalfDollars*0.5 + PaidQuarters*0.25 + PaidDimes*0.1 + PaidNickels*0.05 + PaidPennies*0.01;
 
             double diff = OrderTotal - Given;
 
@@ -563,6 +705,7 @@ namespace PointOfSale
         {
             if (Change >= 0.0 && AmountDue <= 0.0)
             {
+                CashDrawer.OpenDrawer();
                 Hundreds += PaidHundreds;
                 Hundreds -= ChangeHundreds;
                 Fifties += PaidFifties;
@@ -587,7 +730,7 @@ namespace PointOfSale
                 Nickels += PaidNickels;
                 Nickels -= ChangeNickels;
                 Pennies += PaidPennies;
-                Pennies -= PaidPennies;
+                Pennies -= ChangePennies;
                 
                 RecieptPrinter.PrintLine("Order #" + order.Number.ToString());
                 RecieptPrinter.PrintLine(DateTime.Now.ToString() + "\n");

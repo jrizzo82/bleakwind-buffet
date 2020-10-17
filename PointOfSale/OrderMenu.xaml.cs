@@ -506,13 +506,14 @@ namespace PointOfSale
         {
             if (Order.Count > 0)
             {
-                //order = new Order(++nextOrderNumber);
                 menuBorder.Child = new PaymentOptions();
-                //DataContext = order;
                 DisOrEnableButtons(false);
             }
         }
 
+        /// <summary>
+        /// Starts a new order
+        /// </summary>
         public void NewOrder()
         {
             Order = new Order(++nextOrderNumber);
@@ -533,6 +534,11 @@ namespace PointOfSale
                 Order.Remove(Order[i]);            
         }
 
+        /// <summary>
+        /// Handles clicking the add combo button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void AddComboClk(object sender, RoutedEventArgs e)
         {
             combo = new Combo();
@@ -542,6 +548,11 @@ namespace PointOfSale
             btnCancelCombo.IsEnabled = true;
         }
 
+        /// <summary>
+        /// Handles clicking the cancel combo button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void CancelComboClick(object sender, RoutedEventArgs e)
         {
             combo = new Combo();
@@ -550,6 +561,11 @@ namespace PointOfSale
             btnCancelCombo.IsEnabled = false;
         }
 
+        /// <summary>
+        /// Handles clicking the done editing combo button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void DoneEditingComboClick(object sender, RoutedEventArgs e)
         {
             combo = new Combo();
@@ -559,6 +575,11 @@ namespace PointOfSale
             menuListView.SelectedItem = null;
         }
 
+        /// <summary>
+        /// Disables or Enables order buttons so a payment
+        /// can't be altered while taking payment
+        /// </summary>
+        /// <param name="disOrEn">true will enable the buttons, false disables</param>
         public void DisOrEnableButtons(bool disOrEn)
         {
             btnAdd.IsEnabled = disOrEn;
