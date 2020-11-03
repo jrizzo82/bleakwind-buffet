@@ -9,11 +9,6 @@ namespace Website.Pages
 {
     public class AboutModel : PageModel
     { 
-    
-        public string Title
-        {
-            get => "About";
-        }
 
         public void OnGet()
         {

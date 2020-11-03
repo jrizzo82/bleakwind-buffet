@@ -11,35 +11,89 @@
     <p>We at Bleakwind Buffet are proud to bring you authentic fantasy meals straight from the world of Skyrim. Shake the blood off your sword and sake your thirst with one of our old-fashioned sailor sodas. Hack into a Smokehouse Skeleton with your dagger. Or vanquish the the mighty Thalmor Triple Burger! You’ve had a hard adventure and earned your loot, so spend it with us!.</p>
 </div>
 
-<h2 class="menu-title">Entrees</h2>
-@foreach (BleakwindBuffet.Data.IOrderItem io in BleakwindBuffet.Data.Menu.Entrees())
-{
-    <div class="menu-item">
-        <h3 class="item-name">@io.ToString()</h3>
-        <div class="price">Price - @io.Price.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</div>
-        <div class="calories">Calories - @io.Calories</div>
-    </div>
-}
 
-<h2 class="menu-title">Sides</h2>
-@foreach (BleakwindBuffet.Data.IOrderItem io in BleakwindBuffet.Data.Menu.Sides())
-{
-    <div class="menu-item">
-        <h3 class="item-name">@io.ToString()</h3>
-        <div class="price">Price - @io.Price.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</div>
-        <div class="calories">Calories - @io.Calories</div>
-    </div>
-}
+<form id="menu-database">
 
-<h2 class="menu-title">Drinks</h2>
-@foreach (BleakwindBuffet.Data.IOrderItem io in BleakwindBuffet.Data.Menu.Drinks())
-{
-    <div class="menu-item">
-        <h3 class="item-name">@io.ToString()</h3>
-        <div class="price">Price - @io.Price.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</div>
-        <div class="calories">Calories - @io.Calories</div>
+    <div id="search">
+        <input type="text" name="SearchTerms" value="@Model.SearchTerms" />
+        <input type="submit" value="Search">
     </div>
-}
+
+    <div id="filters">
+
+        <h4>Category</h4>
+        <label>
+            <input type="checkbox" name="MenuTypes" value="Entrees" checked="@Model.MenuTypes.Contains("Entrees")" />
+            Entrees
+        </label>
+
+        <label>
+            <input type="checkbox" name="MenuTypes" value="Sides" checked="@Model.MenuTypes.Contains("Sides")" />
+            Sides
+        </label>
+
+        <label>
+            <input type="checkbox" name="MenuTypes" value="Drinks" checked="@Model.MenuTypes.Contains("Drinks")" />
+            Drinks
+        </label>
+
+        <h4>Price Range</h4>
+        <div>
+            Between $
+            <input name="PriceMin" type="number" min="0" max="10" step="0.01" placeholder="min" value="@Model.PriceMin" />
+            and $
+            <input name="PriceMax" type="number" min="0" max="10" step="0.01" placeholder="max" value="@Model.PriceMax" />
+        </div>
+
+        <h4>Calorie Range</h4>
+        <div>
+            Between
+            <input name="CalMin" type="number" min="0" max="1000" step="1" placeholder="min" value="@Model.CalMin" />
+            and
+            <input name="CalMax" type="number" min="0" max="1000" step="1" placeholder="max" value="@Model.CalMax" />
+        </div>
+
+    </div>
+
+    @if (Model.Entrees.Count > 0)
+    {
+        <h2 class="menu-title">Entrees</h2>
+        @foreach (BleakwindBuffet.Data.IOrderItem io in Model.Entrees)
+        {
+            <div class="menu-item">
+                <h3 class="item-name">@io.ToString()</h3>
+                <div class="price">Price - @io.Price.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</div>
+                <div class="calories">Calories - @io.Calories</div>
+            </div>
+        }
+    }
+
+    @if (Model.Sides.Count > 0)
+    {
+        <h2 class="menu-title">Sides</h2>
+        @foreach (BleakwindBuffet.Data.IOrderItem io in Model.Sides)
+        {
+            <div class="menu-item">
+                <h3 class="item-name">@io.ToString()</h3>
+                <div class="price">Price - @io.Price.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</div>
+                <div class="calories">Calories - @io.Calories</div>
+            </div>
+        }
+    }
+
+    @if (Model.Drinks.Count > 0)
+    {
+        <h2 class="menu-title">Drinks</h2>
+        @foreach (BleakwindBuffet.Data.IOrderItem io in Model.Drinks)
+        {
+            <div class="menu-item">
+                <h3 class="item-name">@io.ToString()</h3>
+                <div class="price">Price - @io.Price.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</div>
+                <div class="calories">Calories - @io.Calories</div>
+            </div>
+        }
+    }
+</form>
 
 <h3 class="menu-title">Combo Details:</h3>
 <div>Choose one entree, side, and a drink and you'll save $1 off your order.</div>

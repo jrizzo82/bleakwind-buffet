@@ -33,5 +33,7 @@ namespace BleakwindBuffet.Data
         /// </summary>
         /// <value>list of instructions</value>
         List<string> SpecialInstructions { get; }
+
+        string Name { get; }
     }
 }
