@@ -235,7 +235,11 @@ namespace BleakwindBuffet.Data
                 yield return oi;
         }
 
-
+        /// <summary>
+        /// Searches for the menu items that match the search criteria
+        /// </summary>
+        /// <param name="terms">string with which to filter the search</param>
+        /// <returns>the order items that match the search</returns>
         public static IEnumerable<IOrderItem> Search(string terms)
         {
             List<IOrderItem> results = new List<IOrderItem>();
@@ -246,7 +250,7 @@ namespace BleakwindBuffet.Data
             foreach (IOrderItem io in FullMenu())
             {
                 // Add the movie if the title is a match
-                if (io.Name != null && io.Name.Contains(terms))//, StringComparison.CurrentCultureIgnoreCase))
+                if (io.Name != null && io.Name.Contains(terms))
                 {
                     results.Add(io);
                 }
@@ -256,11 +260,11 @@ namespace BleakwindBuffet.Data
         }
 
         /// <summary>
-        /// Filters the provided collection of movies
+        /// Filters the provided collection of order items
         /// </summary>
-        /// <param name="movies">The collection of movies to filter</param>
-        /// <param name="ratings">The ratings to include</param>
-        /// <returns>A collection containing only movies that match the filter</returns>
+        /// <param name="items">The collection of order items to filter</param>
+        /// <param name="menuTypes">The menu types to include</param>
+        /// <returns>A collection containing only order items that match the filter</returns>
         public static IEnumerable<IOrderItem> FilterByCategory(IEnumerable<IOrderItem> items, IEnumerable<string> menuTypes)
         {
             // If no filter is specified, just return the provided collection

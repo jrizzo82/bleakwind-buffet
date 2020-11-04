@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Author: Jerry Rizzo 
+ * Class Name: Index.cshtml.cs
+ * Purpose: Logic for the Index Page
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,31 +18,51 @@ using BleakwindBuffet.Data.Drinks;
 
 namespace Website.Pages
 {
+    /// <summary>
+    /// Logic for Index Page
+    /// </summary>
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
 
+        /// <summary>
+        /// List of order items
+        /// </summary>
         public IEnumerable<IOrderItem> Items { get; set; }
 
+        /// <summary>
+        /// List of entrees
+        /// </summary>
         public List<IOrderItem> Entrees { get; set; }
 
+        /// <summary>
+        /// List of sides
+        /// </summary>
         public List<IOrderItem> Sides { get; set; }
 
+        /// <summary>
+        /// List of drinks
+        /// </summary>
         public List<IOrderItem> Drinks { get; set; }
 
-       // [BindProperty]
+        /// <summary>
+        /// Minimum price in search filter
+        /// </summary>
         public double? PriceMin { get; set; }
 
-      //  [BindProperty]
+        /// <summary>
+        /// Maximum price in search filter
+        /// </summary>
         public double? PriceMax { get; set; }
 
-      //  [BindProperty]
+        /// <summary>
+        /// Minimum calories in search filter
+        /// </summary>
         public int? CalMin { get; set; }
 
         /// <summary>
-        /// Maximum Calories to filter the search
+        /// Maximum calories in search filter
         /// </summary>
-      //  [BindProperty]
         public int? CalMax { get; set; }
 
         public IndexModel(ILogger<IndexModel> logger)
@@ -45,11 +70,19 @@ namespace Website.Pages
             _logger = logger;
         }
 
+        /// <summary>
+        /// The term to search for in the filter
+        /// </summary>
         public string SearchTerms { get; set; }
 
+        /// <summary>
+        /// The menu categories
+        /// </summary>
         public string[] MenuTypes { get; set; }
 
-
+        /// <summary>
+        /// Called upon loading the page
+        /// </summary>
         public void OnGet()
         {
             SearchTerms = Request.Query["SearchTerms"];
