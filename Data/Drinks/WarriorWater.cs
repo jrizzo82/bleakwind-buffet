@@ -23,6 +23,17 @@ namespace BleakwindBuffet.Data.Drinks
         private bool lemon = false;
 
         /// <summary>
+        /// A description of the item.
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return "It’s water. Just water.";
+            }
+        }
+
+        /// <summary>
         /// The drink's price.
         /// </summary>
         public override double Price

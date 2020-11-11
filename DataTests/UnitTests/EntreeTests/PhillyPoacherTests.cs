@@ -165,5 +165,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             PhillyPoacher pp = new PhillyPoacher();
             Assert.IsAssignableFrom<INotifyPropertyChanged>(pp);
         }
+
+        [Fact]
+        public void ShouldReturnCorrectDescription()
+        {
+            PhillyPoacher pp = new PhillyPoacher();
+            Assert.Equal("Cheesesteak sandwich made from grilled sirloin, topped with onions on a fried roll.", pp.Description);
+        }
     }
 }

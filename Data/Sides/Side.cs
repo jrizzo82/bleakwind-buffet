@@ -42,6 +42,11 @@ namespace BleakwindBuffet.Data.Sides
         public abstract List<string> SpecialInstructions { get; }
 
         /// <summary>
+        /// A description of the item
+        /// </summary>
+        public abstract string Description { get; }
+
+        /// <summary>
         /// The name of the item
         /// </summary>
         public string Name

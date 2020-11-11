@@ -78,7 +78,8 @@ body {
     margin: 4px 4px 4px 0px;
 }
 
-.menu-title {
+#menu-title {
+    flex-direction: row;
     margin: 10px 0px 4px 0px;
 }
 
@@ -96,8 +97,9 @@ form#menu-database {
 
 #items {
     display: flex;
-    flex-direction: column;
     grid-column: 2;
+    flex-direction: row;
+    margin: 3px;
 }
 
 #filters {
@@ -112,4 +114,10 @@ form#menu-database {
 
 #filters h4 {
     margin-bottom: 0.2rem;
+}
+
+@media (max-width: 490px) {
+    #items {
+        flex-direction: column;
+    }
 }

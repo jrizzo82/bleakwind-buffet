@@ -24,6 +24,17 @@ namespace BleakwindBuffet.Data.Drinks
         private bool decaf = false;
 
         /// <summary>
+        /// A description of the item.
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return "Fair trade, fresh ground dark roast coffee.";
+            }
+        }
+
+        /// <summary>
         /// The drink's price.
         /// </summary>
         public override double Price

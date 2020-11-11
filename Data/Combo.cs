@@ -179,6 +179,17 @@ namespace BleakwindBuffet.Data
         }
 
         /// <summary>
+        /// Description of the item
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return "";
+            }
+        }
+
+        /// <summary>
         /// Property changed event handler for combo
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;

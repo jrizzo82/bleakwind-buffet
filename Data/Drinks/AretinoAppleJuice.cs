@@ -22,6 +22,17 @@ namespace BleakwindBuffet.Data.Drinks
         private Size size = Size.Small;
 
         /// <summary>
+        /// A description of the item.
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return "Fresh squeezed apple juice.";
+            }
+        }
+
+        /// <summary>
         /// The drink's price.
         /// </summary>
         public override double Price

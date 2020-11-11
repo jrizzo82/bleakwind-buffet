@@ -249,7 +249,7 @@ namespace BleakwindBuffet.Data
 
             foreach (IOrderItem io in FullMenu())
             {
-                // Add the movie if the title is a match
+                // Add the item if the name is a match
                 if (io.Name != null && io.Name.Contains(terms))
                 {
                     results.Add(io);

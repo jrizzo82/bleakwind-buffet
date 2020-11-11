@@ -58,6 +58,7 @@
     <div id="items">
         @if (Model.Entrees.Count > 0)
         {
+        <div>
             <h2 class="menu-title">Entrees</h2>
             @foreach (BleakwindBuffet.Data.IOrderItem io in Model.Entrees)
             {
@@ -65,34 +66,42 @@
                     <h3 class="item-name">@io.ToString()</h3>
                     <div class="price">Price - @io.Price.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</div>
                     <div class="calories">Calories - @io.Calories</div>
+                    <div class="desciption">@io.Description</div>
                 </div>
             }
+        </div>
         }
 
         @if (Model.Sides.Count > 0)
         {
-            <h2 class="menu-title">Sides</h2>
-            @foreach (BleakwindBuffet.Data.IOrderItem io in Model.Sides)
-            {
-                <div class="menu-item">
-                    <h3 class="item-name">@io.ToString()</h3>
-                    <div class="price">Price - @io.Price.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</div>
-                    <div class="calories">Calories - @io.Calories</div>
-                </div>
-            }
+            <div>
+                <h2 class="menu-title">Sides</h2>
+                @foreach (BleakwindBuffet.Data.IOrderItem io in Model.Sides)
+                {
+                    <div class="menu-item">
+                        <h3 class="item-name">@io.ToString()</h3>
+                        <div class="price">Price - @io.Price.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</div>
+                        <div class="calories">Calories - @io.Calories</div>
+                        <div class="desciption">@io.Description</div>
+                    </div>
+                }
+            </div>
         }
 
         @if (Model.Drinks.Count > 0)
         {
-            <h2 class="menu-title">Drinks</h2>
-            @foreach (BleakwindBuffet.Data.IOrderItem io in Model.Drinks)
-            {
-                <div class="menu-item">
-                    <h3 class="item-name">@io.ToString()</h3>
-                    <div class="price">Price - @io.Price.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</div>
-                    <div class="calories">Calories - @io.Calories</div>
-                </div>
-            }
+            <div>
+                <h2 class="menu-title">Drinks</h2>
+                @foreach (BleakwindBuffet.Data.IOrderItem io in Model.Drinks)
+                {
+                    <div class="menu-item">
+                        <h3 class="item-name">@io.ToString()</h3>
+                        <div class="price">Price - @io.Price.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</div>
+                        <div class="calories">Calories - @io.Calories</div>
+                        <div class="desciption">@io.Description</div>
+                    </div>
+                }
+            </div>
         }
     </div>
 </form>

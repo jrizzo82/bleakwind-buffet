@@ -112,10 +112,63 @@ namespace Website.Pages
             else
                 CalMax = int.Parse(Request.Query["CalMax"]);
 
-            Items = Menu.Search(SearchTerms);
-            Items = Menu.FilterByCategory(Items, MenuTypes);
-            Items = Menu.FilterByPrice(Items, PriceMin, PriceMax);
-            Items = Menu.FilterByCalories(Items, CalMin, CalMax);
+            Items = Menu.FullMenu();
+            if (SearchTerms != null)
+            {
+                string[] terms = SearchTerms.Split(' ');
+                List<IOrderItem> results = new List<IOrderItem>();
+                foreach (string term in terms)
+                    results.AddRange(Items.Where(item => item.Name != null && (item.Name.Contains(term, StringComparison.InvariantCultureIgnoreCase) ||
+                    item.Description.Contains(term, StringComparison.InvariantCultureIgnoreCase))));
+                Items = results;
+            }
+            if (MenuTypes != null && MenuTypes.Length != 0)
+            {
+                Items = Items.Where(item => (item is Entree && MenuTypes.Contains("Entrees")) || (item is Side && MenuTypes.Contains("Sides"))
+                        || (item is Drink && MenuTypes.Contains("Drinks")));
+            }
+            if (PriceMin != null || PriceMax != null)
+            {
+                if (PriceMin == null)
+                {
+                    Items = Items.Where(item =>
+                        item.Price < PriceMax
+                        );
+                }
+                else if (PriceMax == null)
+                {
+                    Items = Items.Where(item =>
+                        item.Price > PriceMin
+                        );
+                }
+                else
+                {
+                    Items = Items.Where(item =>
+                        item.Price < PriceMax && item.Price > PriceMin
+                        );
+                }
+            }
+            if (CalMin != null || CalMax != null)
+            {
+                if (CalMin == null)
+                {
+                    Items = Items.Where(item =>
+                        item.Calories < CalMax
+                        );
+                }
+                else if (CalMax == null)
+                {
+                    Items = Items.Where(item =>
+                        item.Calories > CalMin
+                        );
+                }
+                else
+                {
+                    Items = Items.Where(item =>
+                        item.Calories < CalMax && item.Calories > CalMin
+                        );
+                }
+            }
             Entrees = new List<IOrderItem>();
             Sides = new List<IOrderItem>();
             Drinks = new List<IOrderItem>();
